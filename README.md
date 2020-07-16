@@ -1,2 +1,2 @@
-# rewann-results
-Results of experiments run with rewann
+# wann-results
+Results of experiments run with wann_genetic
