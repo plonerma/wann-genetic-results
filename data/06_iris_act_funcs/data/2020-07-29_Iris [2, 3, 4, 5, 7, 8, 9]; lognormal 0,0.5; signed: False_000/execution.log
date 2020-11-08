@@ -1,0 +1,891 @@
+2020-07-29 10:04:59,891 - root - INFO - Package version 0.1.1
+2020-07-29 10:04:59,891 - root - INFO - Saving data at /vol/fob-vol1/mi15/plonerma/Lab/rewann/data/2020-07-29_Iris [2, 3, 4, 5, 7, 8, 9]; lognormal 0,0.5; signed: False_000.
+2020-07-29 10:04:59,891 - root - DEBUG - Loading training dataset
+2020-07-29 10:04:59,957 - root - DEBUG - Loaded 150 samples.
+2020-07-29 10:04:59,958 - root - DEBUG - Running experiments with the following parameters:
+debug = true
+experiment_name = "Iris [2, 3, 4, 5, 7, 8, 9]; lognormal 0,0.5; signed: False"
+experiment_path = "data/2020-07-29_Iris [2, 3, 4, 5, 7, 8, 9]; lognormal 0,0.5; signed: False_000"
+
+[config]
+num_workers = 1
+debug = true
+backend = "numpy"
+
+[postopt]
+run_postopt = true
+compile_report = false
+num_weights = 100
+num_samples = -1
+
+[sampling]
+seed = 0
+post_init_seed = false
+distribution = "lognormal"
+lower_bound = -2
+upper_bound = 2
+mean = 0
+sigma = 0.5
+num_weights_per_iteration = 5
+num_samples_per_iteration = -1
+hof_evaluation_iterations = 20
+
+[task]
+name = "iris"
+sample_order_seed = 0
+test_portion = 0.2
+sample_length = 10
+num_categories = 8
+
+[storage]
+data_base_path = "data"
+log_filename = "execution.log"
+commit_elite_freq = -1
+commit_metrics_freq = 10
+
+[population]
+num_generations = 200
+size = 100
+initial_enabled_edge_prob = 0.05
+initial_genes = "full"
+hof_size = 10
+enable_edge_signs = false
+enabled_activation_funcs = [ 2, 3, 4, 5, 7, 8, 9,]
+
+[selection]
+use_tournaments = true
+elite_ratio = 0.1
+culling_ratio = 0.2
+tournament_size = 5
+objectives = [ "-log_loss.min", "-log_loss.mean", "-n_hidden",]
+recorded_metrics = [ "accuracy", "kappa", "log_loss",]
+hof_metric = "accuracy.mean"
+
+[mutation.new_edge]
+probability = 0.2
+strategy = "layer_agnostic"
+propability = 0.2
+
+[mutation.new_node]
+probability = 0.25
+propability = 0.3
+
+[mutation.reenable_edge]
+probability = 0.05
+propability = 0.1
+
+[mutation.change_activation]
+probability = 0.5
+propability = 0.4
+
+[mutation.change_edge_sign]
+probability = 0.2
+
+[mutation.new_recurrent_edge]
+probability = 0.2
+strategy = "any"
+
+2020-07-29 10:04:59,969 - root - INFO - Starting evolutionary algorithm
+2020-07-29 10:04:59,984 - root - DEBUG - Sampled weight [1.8417063  0.90808171 0.98347836 0.46514702 1.10887419]
+2020-07-29 10:05:01,028 - root - DEBUG - Updating hall of fame
+2020-07-29 10:05:02,980 - root - INFO - Completed generation 1; 3.0s elapsed, 3.0s avg, 3.0s total. Expected time remaining: 6e+02s
+2020-07-29 10:05:03,042 - root - INFO - #1 MAX:accuracy.mean: 0.67
+2020-07-29 10:05:03,083 - root - DEBUG - Sampled weight [0.43561745 0.9023585  0.54818185 2.16336566 0.54472831]
+2020-07-29 10:05:04,120 - root - DEBUG - Updating hall of fame
+2020-07-29 10:05:05,928 - root - INFO - Completed generation 2; 2.9s elapsed, 2.9s avg, 5.9s total. Expected time remaining: 5.8e+02s
+2020-07-29 10:05:05,983 - root - INFO - #2 MAX:accuracy.mean: 0.46
+2020-07-29 10:05:06,023 - root - DEBUG - Sampled weight [1.14730163 0.41544243 1.01202387 0.9910779  1.72479332]
+2020-07-29 10:05:07,067 - root - DEBUG - Updating hall of fame
+2020-07-29 10:05:08,683 - root - INFO - Completed generation 3; 2.7s elapsed, 2.9s avg, 8.6s total. Expected time remaining: 5.6e+02s
+2020-07-29 10:05:08,738 - root - INFO - #3 MAX:accuracy.mean: 0.61
+2020-07-29 10:05:08,779 - root - DEBUG - Sampled weight [0.91958934 1.09925672 0.7845178  1.19716325 0.8587788 ]
+2020-07-29 10:05:09,823 - root - DEBUG - Updating hall of fame
+2020-07-29 10:05:11,485 - root - INFO - Completed generation 4; 2.7s elapsed, 2.8s avg, 1.1e+01s total. Expected time remaining: 5.6e+02s
+2020-07-29 10:05:11,540 - root - INFO - #4 MAX:accuracy.mean: 0.67
+2020-07-29 10:05:11,581 - root - DEBUG - Sampled weight [1.24976116 2.07196703 1.00044815 0.57985177 0.66897161]
+2020-07-29 10:05:12,620 - root - DEBUG - Updating hall of fame
+2020-07-29 10:05:14,440 - root - INFO - Completed generation 5; 2.9s elapsed, 2.8s avg, 1.4e+01s total. Expected time remaining: 5.6e+02s
+2020-07-29 10:05:14,494 - root - INFO - #5 MAX:accuracy.mean: 0.66
+2020-07-29 10:05:14,535 - root - DEBUG - Sampled weight [0.32686044 1.73380031 1.23660276 1.183672   1.07193801]
+2020-07-29 10:05:15,576 - root - DEBUG - Updating hall of fame
+2020-07-29 10:05:17,212 - root - INFO - Completed generation 6; 2.7s elapsed, 2.8s avg, 1.7e+01s total. Expected time remaining: 5.5e+02s
+2020-07-29 10:05:17,266 - root - INFO - #6 MAX:accuracy.mean: 0.64
+2020-07-29 10:05:17,306 - root - DEBUG - Sampled weight [0.81330373 0.7032323  2.07562473 1.40576722 1.06701745]
+2020-07-29 10:05:18,347 - root - DEBUG - Updating hall of fame
+2020-07-29 10:05:20,161 - root - INFO - Completed generation 7; 2.9s elapsed, 2.8s avg, 2e+01s total. Expected time remaining: 5.5e+02s
+2020-07-29 10:05:20,215 - root - INFO - #7 MAX:accuracy.mean: 0.66
+2020-07-29 10:05:20,255 - root - DEBUG - Sampled weight [0.99211355 0.88549743 0.93367162 1.29917913 0.53110154]
+2020-07-29 10:05:21,304 - root - DEBUG - Updating hall of fame
+2020-07-29 10:05:22,991 - root - INFO - Completed generation 8; 2.8s elapsed, 2.8s avg, 2.3e+01s total. Expected time remaining: 5.4e+02s
+2020-07-29 10:05:23,046 - root - INFO - #8 MAX:accuracy.mean: 0.65
+2020-07-29 10:05:23,085 - root - DEBUG - Sampled weight [0.91525972 1.32363186 2.40735404 1.40845002 0.91079347]
+2020-07-29 10:05:24,134 - root - DEBUG - Updating hall of fame
+2020-07-29 10:05:25,055 - root - INFO - Completed generation 9; 2.0s elapsed, 2.7s avg, 2.5e+01s total. Expected time remaining: 5.2e+02s
+2020-07-29 10:05:25,110 - root - INFO - #9 MAX:accuracy.mean: 0.66
+2020-07-29 10:05:25,150 - root - DEBUG - Sampled weight [1.72924841 0.83006556 0.83368559 1.2745883  0.43432769]
+2020-07-29 10:05:26,205 - root - DEBUG - Updating hall of fame
+2020-07-29 10:05:26,939 - root - INFO - Completed generation 10; 1.8s elapsed, 2.6s avg, 2.6e+01s total. Expected time remaining: 5e+02s
+2020-07-29 10:05:26,994 - root - INFO - #10 MAX:accuracy.mean: 0.66
+2020-07-29 10:05:27,076 - root - DEBUG - Sampled weight [1.54856233 0.97693454 0.73360096 1.54459695 0.92919057]
+2020-07-29 10:05:28,122 - root - DEBUG - Updating hall of fame
+2020-07-29 10:05:29,032 - root - INFO - Completed generation 11; 2.0s elapsed, 2.6s avg, 2.8e+01s total. Expected time remaining: 4.9e+02s
+2020-07-29 10:05:29,086 - root - INFO - #11 MAX:accuracy.mean: 0.72
+2020-07-29 10:05:29,126 - root - DEBUG - Sampled weight [0.53217038 0.31299377 1.27109811 1.02107534 1.04012993]
+2020-07-29 10:05:30,178 - root - DEBUG - Updating hall of fame
+2020-07-29 10:05:31,268 - root - INFO - Completed generation 12; 2.2s elapsed, 2.6s avg, 3.1e+01s total. Expected time remaining: 4.8e+02s
+2020-07-29 10:05:31,323 - root - INFO - #12 MAX:accuracy.mean: 0.64
+2020-07-29 10:05:31,363 - root - DEBUG - Sampled weight [1.4902244  1.51859721 0.86493451 0.85349323 0.54954409]
+2020-07-29 10:05:32,415 - root - DEBUG - Updating hall of fame
+2020-07-29 10:05:32,965 - root - INFO - Completed generation 13; 1.6s elapsed, 2.5s avg, 3.2e+01s total. Expected time remaining: 4.6e+02s
+2020-07-29 10:05:33,019 - root - INFO - #13 MAX:accuracy.mean: 0.73
+2020-07-29 10:05:33,059 - root - DEBUG - Sampled weight [0.43616721 0.71427357 0.84826796 0.98073425 1.34458693]
+2020-07-29 10:05:34,112 - root - DEBUG - Updating hall of fame
+2020-07-29 10:05:35,018 - root - INFO - Completed generation 14; 2.0s elapsed, 2.4s avg, 3.4e+01s total. Expected time remaining: 4.6e+02s
+2020-07-29 10:05:35,072 - root - INFO - #14 MAX:accuracy.mean: 0.71
+2020-07-29 10:05:35,112 - root - DEBUG - Sampled weight [0.76998753 0.87806492 0.64208532 1.98220635 0.90785944]
+2020-07-29 10:05:36,168 - root - DEBUG - Updating hall of fame
+2020-07-29 10:05:37,818 - root - INFO - Completed generation 15; 2.7s elapsed, 2.5s avg, 3.7e+01s total. Expected time remaining: 4.6e+02s
+2020-07-29 10:05:37,873 - root - INFO - #15 MAX:accuracy.mean: 0.78
+2020-07-29 10:05:37,914 - root - DEBUG - Sampled weight [0.35431244 1.2759964  1.00561599 0.38420691 0.43767443]
+2020-07-29 10:05:38,963 - root - DEBUG - Updating hall of fame
+2020-07-29 10:05:39,699 - root - INFO - Completed generation 16; 1.8s elapsed, 2.4s avg, 3.9e+01s total. Expected time remaining: 4.5e+02s
+2020-07-29 10:05:39,753 - root - INFO - #16 MAX:accuracy.mean: 0.67
+2020-07-29 10:05:39,793 - root - DEBUG - Sampled weight [1.91432783 1.4567497  0.74192923 0.52885116 1.82356426]
+2020-07-29 10:05:40,839 - root - DEBUG - Updating hall of fame
+2020-07-29 10:05:42,138 - root - INFO - Completed generation 17; 2.4s elapsed, 2.4s avg, 4.1e+01s total. Expected time remaining: 4.4e+02s
+2020-07-29 10:05:42,193 - root - INFO - #17 MAX:accuracy.mean: 0.68
+2020-07-29 10:05:42,233 - root - DEBUG - Sampled weight [1.9762761  2.24167088 0.8915347  0.49262828 0.43590421]
+2020-07-29 10:05:43,280 - root - DEBUG - Updating hall of fame
+2020-07-29 10:05:44,412 - root - INFO - Completed generation 18; 2.2s elapsed, 2.4s avg, 4.3e+01s total. Expected time remaining: 4.4e+02s
+2020-07-29 10:05:44,466 - root - INFO - #18 MAX:accuracy.mean: 0.66
+2020-07-29 10:05:44,506 - root - DEBUG - Sampled weight [1.00728427 0.79536614 2.24780341 0.36572863 0.80448628]
+2020-07-29 10:05:45,556 - root - DEBUG - Updating hall of fame
+2020-07-29 10:05:46,672 - root - INFO - Completed generation 19; 2.2s elapsed, 2.4s avg, 4.6e+01s total. Expected time remaining: 4.4e+02s
+2020-07-29 10:05:46,727 - root - INFO - #19 MAX:accuracy.mean: 0.7
+2020-07-29 10:05:46,767 - root - DEBUG - Sampled weight [1.46950459 0.49031064 2.9705927  0.60135638 0.84445803]
+2020-07-29 10:05:47,828 - root - DEBUG - Updating hall of fame
+2020-07-29 10:05:48,939 - root - INFO - Completed generation 20; 2.2s elapsed, 2.4s avg, 4.8e+01s total. Expected time remaining: 4.3e+02s
+2020-07-29 10:05:48,994 - root - INFO - #20 MAX:accuracy.mean: 0.66
+2020-07-29 10:05:49,073 - root - DEBUG - Sampled weight [0.70805874 0.8707974  1.23360211 1.39448371 1.85542059]
+2020-07-29 10:05:50,150 - root - DEBUG - Updating hall of fame
+2020-07-29 10:05:50,734 - root - INFO - Completed generation 21; 1.7s elapsed, 2.4s avg, 5e+01s total. Expected time remaining: 4.2e+02s
+2020-07-29 10:05:50,792 - root - INFO - #21 MAX:accuracy.mean: 0.7
+2020-07-29 10:05:50,834 - root - DEBUG - Sampled weight [0.87263803 0.94344434 0.76859694 1.10825542 0.44150537]
+2020-07-29 10:05:51,971 - root - DEBUG - Updating hall of fame
+2020-07-29 10:05:52,968 - root - INFO - Completed generation 22; 2.2s elapsed, 2.4s avg, 5.2e+01s total. Expected time remaining: 4.2e+02s
+2020-07-29 10:05:53,026 - root - INFO - #22 MAX:accuracy.mean: 0.75
+2020-07-29 10:05:53,069 - root - DEBUG - Sampled weight [0.9109092  0.92877861 0.88305606 0.68919144 0.91749709]
+2020-07-29 10:05:54,208 - root - DEBUG - Updating hall of fame
+2020-07-29 10:05:55,596 - root - INFO - Completed generation 23; 2.6s elapsed, 2.4s avg, 5.4e+01s total. Expected time remaining: 4.2e+02s
+2020-07-29 10:05:55,654 - root - INFO - #23 MAX:accuracy.mean: 0.89
+2020-07-29 10:05:55,696 - root - DEBUG - Sampled weight [2.10011053 0.68667152 1.61400321 1.47652156 0.84259935]
+2020-07-29 10:05:56,826 - root - DEBUG - Updating hall of fame
+2020-07-29 10:05:57,996 - root - INFO - Completed generation 24; 2.3s elapsed, 2.4s avg, 5.7e+01s total. Expected time remaining: 4.2e+02s
+2020-07-29 10:05:58,054 - root - INFO - #24 MAX:accuracy.mean: 0.66
+2020-07-29 10:05:58,096 - root - DEBUG - Sampled weight [0.68801861 0.93569309 0.40598681 1.35388573 0.72198428]
+2020-07-29 10:05:59,151 - root - DEBUG - Updating hall of fame
+2020-07-29 10:05:59,706 - root - INFO - Completed generation 25; 1.7s elapsed, 2.3s avg, 5.8e+01s total. Expected time remaining: 4.1e+02s
+2020-07-29 10:05:59,760 - root - INFO - #25 MAX:accuracy.mean: 0.69
+2020-07-29 10:05:59,800 - root - DEBUG - Sampled weight [5.53937376 0.70769324 0.88333561 1.05151437 1.23460853]
+2020-07-29 10:06:00,851 - root - DEBUG - Updating hall of fame
+2020-07-29 10:06:02,325 - root - INFO - Completed generation 26; 2.6s elapsed, 2.3s avg, 6.1e+01s total. Expected time remaining: 4.1e+02s
+2020-07-29 10:06:02,380 - root - INFO - #26 MAX:accuracy.mean: 0.65
+2020-07-29 10:06:02,420 - root - DEBUG - Sampled weight [3.02081921 1.10571766 1.05332553 0.60624986 0.64567782]
+2020-07-29 10:06:03,477 - root - DEBUG - Updating hall of fame
+2020-07-29 10:06:04,390 - root - INFO - Completed generation 27; 2.0s elapsed, 2.3s avg, 6.3e+01s total. Expected time remaining: 4e+02s
+2020-07-29 10:06:04,444 - root - INFO - #27 MAX:accuracy.mean: 0.66
+2020-07-29 10:06:04,486 - root - DEBUG - Sampled weight [1.24913027 0.56363516 0.94937917 0.35783625 0.88694408]
+2020-07-29 10:06:05,548 - root - DEBUG - Updating hall of fame
+2020-07-29 10:06:06,287 - root - INFO - Completed generation 28; 1.8s elapsed, 2.3s avg, 6.5e+01s total. Expected time remaining: 4e+02s
+2020-07-29 10:06:06,341 - root - INFO - #28 MAX:accuracy.mean: 0.66
+2020-07-29 10:06:06,381 - root - DEBUG - Sampled weight [0.51683911 1.224193   0.97855444 1.09970498 1.37535696]
+2020-07-29 10:06:07,441 - root - DEBUG - Updating hall of fame
+2020-07-29 10:06:08,545 - root - INFO - Completed generation 29; 2.2s elapsed, 2.3s avg, 6.7e+01s total. Expected time remaining: 3.9e+02s
+2020-07-29 10:06:08,599 - root - INFO - #29 MAX:accuracy.mean: 0.68
+2020-07-29 10:06:08,639 - root - DEBUG - Sampled weight [0.69225721 0.90476354 2.9467964  0.61320476 0.59876085]
+2020-07-29 10:06:09,705 - root - DEBUG - Updating hall of fame
+2020-07-29 10:06:10,637 - root - INFO - Completed generation 30; 2.0s elapsed, 2.3s avg, 6.9e+01s total. Expected time remaining: 3.9e+02s
+2020-07-29 10:06:10,691 - root - INFO - #30 MAX:accuracy.mean: 0.71
+2020-07-29 10:06:10,792 - root - DEBUG - Sampled weight [5.12074098 0.45217813 0.7596599  0.92666882 0.79574654]
+2020-07-29 10:06:11,846 - root - DEBUG - Updating hall of fame
+2020-07-29 10:06:12,228 - root - INFO - Completed generation 31; 1.5s elapsed, 2.3s avg, 7e+01s total. Expected time remaining: 3.8e+02s
+2020-07-29 10:06:12,282 - root - INFO - #31 MAX:accuracy.mean: 0.71
+2020-07-29 10:06:12,323 - root - DEBUG - Sampled weight [1.18858643 1.55456153 0.5755434  0.61993941 0.65751541]
+2020-07-29 10:06:13,381 - root - DEBUG - Updating hall of fame
+2020-07-29 10:06:13,745 - root - INFO - Completed generation 32; 1.5s elapsed, 2.2s avg, 7.2e+01s total. Expected time remaining: 3.8e+02s
+2020-07-29 10:06:13,799 - root - INFO - #32 MAX:accuracy.mean: 0.74
+2020-07-29 10:06:13,841 - root - DEBUG - Sampled weight [0.77906188 1.2680119  1.3248788  1.29347653 0.56185292]
+2020-07-29 10:06:14,898 - root - DEBUG - Updating hall of fame
+2020-07-29 10:06:15,619 - root - INFO - Completed generation 33; 1.8s elapsed, 2.2s avg, 7.4e+01s total. Expected time remaining: 3.7e+02s
+2020-07-29 10:06:15,674 - root - INFO - #33 MAX:accuracy.mean: 0.66
+2020-07-29 10:06:15,714 - root - DEBUG - Sampled weight [1.10768638 2.20280197 0.83261876 1.17448761 0.62115545]
+2020-07-29 10:06:16,772 - root - DEBUG - Updating hall of fame
+2020-07-29 10:06:17,683 - root - INFO - Completed generation 34; 2.0s elapsed, 2.2s avg, 7.6e+01s total. Expected time remaining: 3.7e+02s
+2020-07-29 10:06:17,738 - root - INFO - #34 MAX:accuracy.mean: 0.68
+2020-07-29 10:06:17,778 - root - DEBUG - Sampled weight [0.38130881 0.95984587 1.61193725 0.91500447 0.55559903]
+2020-07-29 10:06:18,832 - root - DEBUG - Updating hall of fame
+2020-07-29 10:06:19,397 - root - INFO - Completed generation 35; 1.7s elapsed, 2.2s avg, 7.7e+01s total. Expected time remaining: 3.6e+02s
+2020-07-29 10:06:19,451 - root - INFO - #35 MAX:accuracy.mean: 0.71
+2020-07-29 10:06:19,492 - root - DEBUG - Sampled weight [1.37416445 0.98399353 0.57621416 0.71988863 0.93937593]
+2020-07-29 10:06:20,556 - root - DEBUG - Updating hall of fame
+2020-07-29 10:06:21,115 - root - INFO - Completed generation 36; 1.7s elapsed, 2.2s avg, 7.9e+01s total. Expected time remaining: 3.6e+02s
+2020-07-29 10:06:21,169 - root - INFO - #36 MAX:accuracy.mean: 0.76
+2020-07-29 10:06:21,209 - root - DEBUG - Sampled weight [1.07340889 3.65781047 0.80702524 1.07870618 1.93274629]
+2020-07-29 10:06:22,264 - root - DEBUG - Updating hall of fame
+2020-07-29 10:06:23,349 - root - INFO - Completed generation 37; 2.2s elapsed, 2.2s avg, 8.1e+01s total. Expected time remaining: 3.6e+02s
+2020-07-29 10:06:23,403 - root - INFO - #37 MAX:accuracy.mean: 0.67
+2020-07-29 10:06:23,445 - root - DEBUG - Sampled weight [0.89145651 1.52601303 1.30619003 1.99269219 0.91065597]
+2020-07-29 10:06:24,500 - root - DEBUG - Updating hall of fame
+2020-07-29 10:06:25,237 - root - INFO - Completed generation 38; 1.8s elapsed, 2.2s avg, 8.3e+01s total. Expected time remaining: 3.5e+02s
+2020-07-29 10:06:25,291 - root - INFO - #38 MAX:accuracy.mean: 0.68
+2020-07-29 10:06:25,332 - root - DEBUG - Sampled weight [1.11355793 0.72295944 1.30602383 0.87528811 1.10684714]
+2020-07-29 10:06:26,387 - root - DEBUG - Updating hall of fame
+2020-07-29 10:06:27,493 - root - INFO - Completed generation 39; 2.2s elapsed, 2.2s avg, 8.5e+01s total. Expected time remaining: 3.5e+02s
+2020-07-29 10:06:27,547 - root - INFO - #39 MAX:accuracy.mean: 0.78
+2020-07-29 10:06:27,588 - root - DEBUG - Sampled weight [2.96370267 0.48052577 1.07360243 0.69131638 0.71379875]
+2020-07-29 10:06:28,643 - root - DEBUG - Updating hall of fame
+2020-07-29 10:06:30,126 - root - INFO - Completed generation 40; 2.6s elapsed, 2.2s avg, 8.8e+01s total. Expected time remaining: 3.5e+02s
+2020-07-29 10:06:30,289 - root - INFO - #40 MAX:accuracy.mean: 0.69
+2020-07-29 10:06:30,385 - root - DEBUG - Sampled weight [0.80355088 1.77826026 1.12038796 0.85466375 1.62013736]
+2020-07-29 10:06:31,436 - root - DEBUG - Updating hall of fame
+2020-07-29 10:06:32,202 - root - INFO - Completed generation 41; 1.9s elapsed, 2.2s avg, 9e+01s total. Expected time remaining: 3.5e+02s
+2020-07-29 10:06:32,256 - root - INFO - #41 MAX:accuracy.mean: 0.74
+2020-07-29 10:06:32,297 - root - DEBUG - Sampled weight [1.09046821 1.58436238 1.32235711 0.99551705 0.47458357]
+2020-07-29 10:06:33,400 - root - DEBUG - Updating hall of fame
+2020-07-29 10:06:34,562 - root - INFO - Completed generation 42; 2.3s elapsed, 2.2s avg, 9.2e+01s total. Expected time remaining: 3.5e+02s
+2020-07-29 10:06:34,616 - root - INFO - #42 MAX:accuracy.mean: 0.7
+2020-07-29 10:06:34,656 - root - DEBUG - Sampled weight [2.22220487 0.67593885 1.09914325 0.5817617  2.26601902]
+2020-07-29 10:06:35,706 - root - DEBUG - Updating hall of fame
+2020-07-29 10:06:36,813 - root - INFO - Completed generation 43; 2.2s elapsed, 2.2s avg, 9.4e+01s total. Expected time remaining: 3.4e+02s
+2020-07-29 10:06:36,867 - root - INFO - #43 MAX:accuracy.mean: 0.67
+2020-07-29 10:06:36,908 - root - DEBUG - Sampled weight [0.59578492 2.14953962 1.60749324 0.46253098 2.69073277]
+2020-07-29 10:06:37,964 - root - DEBUG - Updating hall of fame
+2020-07-29 10:06:38,698 - root - INFO - Completed generation 44; 1.8s elapsed, 2.2s avg, 9.6e+01s total. Expected time remaining: 3.4e+02s
+2020-07-29 10:06:38,752 - root - INFO - #44 MAX:accuracy.mean: 0.67
+2020-07-29 10:06:38,793 - root - DEBUG - Sampled weight [1.76846748 2.18458851 0.40107145 1.77358402 1.34924055]
+2020-07-29 10:06:39,851 - root - DEBUG - Updating hall of fame
+2020-07-29 10:06:40,042 - root - INFO - Completed generation 45; 1.3s elapsed, 2.2s avg, 9.7e+01s total. Expected time remaining: 3.4e+02s
+2020-07-29 10:06:40,096 - root - INFO - #45 MAX:accuracy.mean: 0.66
+2020-07-29 10:06:40,137 - root - DEBUG - Sampled weight [1.65416396 0.54862798 1.14406231 0.88296287 0.64523174]
+2020-07-29 10:06:41,192 - root - DEBUG - Updating hall of fame
+2020-07-29 10:06:41,384 - root - INFO - Completed generation 46; 1.3s elapsed, 2.1s avg, 9.9e+01s total. Expected time remaining: 3.3e+02s
+2020-07-29 10:06:41,438 - root - INFO - #46 MAX:accuracy.mean: 0.72
+2020-07-29 10:06:41,479 - root - DEBUG - Sampled weight [0.56786889 0.77816449 0.61824827 1.86914184 1.01522199]
+2020-07-29 10:06:42,534 - root - DEBUG - Updating hall of fame
+2020-07-29 10:06:43,453 - root - INFO - Completed generation 47; 2.0s elapsed, 2.1s avg, 1e+02s total. Expected time remaining: 3.3e+02s
+2020-07-29 10:06:43,507 - root - INFO - #47 MAX:accuracy.mean: 0.73
+2020-07-29 10:06:43,548 - root - DEBUG - Sampled weight [0.53607665 1.64343162 2.44849957 0.90972396 0.35314098]
+2020-07-29 10:06:44,611 - root - DEBUG - Updating hall of fame
+2020-07-29 10:06:45,363 - root - INFO - Completed generation 48; 1.9s elapsed, 2.1s avg, 1e+02s total. Expected time remaining: 3.2e+02s
+2020-07-29 10:06:45,418 - root - INFO - #48 MAX:accuracy.mean: 0.66
+2020-07-29 10:06:45,458 - root - DEBUG - Sampled weight [1.50853635 1.29559007 2.18277779 1.20057479 1.3909158 ]
+2020-07-29 10:06:46,515 - root - DEBUG - Updating hall of fame
+2020-07-29 10:06:47,070 - root - INFO - Completed generation 49; 1.7s elapsed, 2.1s avg, 1e+02s total. Expected time remaining: 3.2e+02s
+2020-07-29 10:06:47,125 - root - INFO - #49 MAX:accuracy.mean: 0.66
+2020-07-29 10:06:47,166 - root - DEBUG - Sampled weight [1.29715741 0.84605345 0.75740918 0.7589934  1.30188202]
+2020-07-29 10:06:48,224 - root - DEBUG - Updating hall of fame
+2020-07-29 10:06:48,783 - root - INFO - Completed generation 50; 1.7s elapsed, 2.1s avg, 1.1e+02s total. Expected time remaining: 3.2e+02s
+2020-07-29 10:06:48,838 - root - INFO - #50 MAX:accuracy.mean: 0.78
+2020-07-29 10:06:48,953 - root - DEBUG - Sampled weight [1.69291664 0.44010036 1.2918662  0.46512826 0.50003535]
+2020-07-29 10:06:50,011 - root - DEBUG - Updating hall of fame
+2020-07-29 10:06:51,482 - root - INFO - Completed generation 51; 2.6s elapsed, 2.1s avg, 1.1e+02s total. Expected time remaining: 3.2e+02s
+2020-07-29 10:06:51,536 - root - INFO - #51 MAX:accuracy.mean: 0.73
+2020-07-29 10:06:51,576 - root - DEBUG - Sampled weight [0.72483826 1.10253745 0.88190885 0.82627075 1.36061257]
+2020-07-29 10:06:52,634 - root - DEBUG - Updating hall of fame
+2020-07-29 10:06:53,368 - root - INFO - Completed generation 52; 1.8s elapsed, 2.1s avg, 1.1e+02s total. Expected time remaining: 3.1e+02s
+2020-07-29 10:06:53,422 - root - INFO - #52 MAX:accuracy.mean: 0.81
+2020-07-29 10:06:53,462 - root - DEBUG - Sampled weight [0.53527662 1.31012395 0.97807646 0.68905618 2.12478269]
+2020-07-29 10:06:54,520 - root - DEBUG - Updating hall of fame
+2020-07-29 10:06:55,787 - root - INFO - Completed generation 53; 2.4s elapsed, 2.1s avg, 1.1e+02s total. Expected time remaining: 3.1e+02s
+2020-07-29 10:06:55,841 - root - INFO - #53 MAX:accuracy.mean: 0.71
+2020-07-29 10:06:55,881 - root - DEBUG - Sampled weight [0.88537554 1.40853176 1.11917658 0.56040929 0.70580384]
+2020-07-29 10:06:56,935 - root - DEBUG - Updating hall of fame
+2020-07-29 10:06:57,478 - root - INFO - Completed generation 54; 1.6s elapsed, 2.1s avg, 1.1e+02s total. Expected time remaining: 3.1e+02s
+2020-07-29 10:06:57,533 - root - INFO - #54 MAX:accuracy.mean: 0.72
+2020-07-29 10:06:57,574 - root - DEBUG - Sampled weight [1.14622808 0.38450559 0.88398312 0.88162073 0.79489168]
+2020-07-29 10:06:58,637 - root - DEBUG - Updating hall of fame
+2020-07-29 10:06:59,547 - root - INFO - Completed generation 55; 2.0s elapsed, 2.1s avg, 1.2e+02s total. Expected time remaining: 3.1e+02s
+2020-07-29 10:06:59,601 - root - INFO - #55 MAX:accuracy.mean: 0.78
+2020-07-29 10:06:59,641 - root - DEBUG - Sampled weight [0.58751119 2.18648536 0.82581053 1.99223978 0.72270703]
+2020-07-29 10:07:00,705 - root - DEBUG - Updating hall of fame
+2020-07-29 10:07:01,839 - root - INFO - Completed generation 56; 2.2s elapsed, 2.1s avg, 1.2e+02s total. Expected time remaining: 3e+02s
+2020-07-29 10:07:01,897 - root - INFO - #56 MAX:accuracy.mean: 0.69
+2020-07-29 10:07:01,938 - root - DEBUG - Sampled weight [0.74860072 0.81184405 1.87337503 2.0088901  0.80494235]
+2020-07-29 10:07:02,998 - root - DEBUG - Updating hall of fame
+2020-07-29 10:07:03,181 - root - INFO - Completed generation 57; 1.3s elapsed, 2.1s avg, 1.2e+02s total. Expected time remaining: 3e+02s
+2020-07-29 10:07:03,235 - root - INFO - #57 MAX:accuracy.mean: 0.82
+2020-07-29 10:07:03,275 - root - DEBUG - Sampled weight [0.54046778 1.00308448 1.66015755 0.80425482 0.40514593]
+2020-07-29 10:07:04,328 - root - DEBUG - Updating hall of fame
+2020-07-29 10:07:04,513 - root - INFO - Completed generation 58; 1.3s elapsed, 2.1s avg, 1.2e+02s total. Expected time remaining: 3e+02s
+2020-07-29 10:07:04,567 - root - INFO - #58 MAX:accuracy.mean: 0.7
+2020-07-29 10:07:04,608 - root - DEBUG - Sampled weight [1.30273979 1.28418332 2.17865143 0.96764911 0.91639134]
+2020-07-29 10:07:05,658 - root - DEBUG - Updating hall of fame
+2020-07-29 10:07:06,568 - root - INFO - Completed generation 59; 2.0s elapsed, 2.1s avg, 1.2e+02s total. Expected time remaining: 2.9e+02s
+2020-07-29 10:07:06,622 - root - INFO - #59 MAX:accuracy.mean: 0.71
+2020-07-29 10:07:06,662 - root - DEBUG - Sampled weight [0.77683152 0.71242779 0.78519516 1.22410282 1.30696463]
+2020-07-29 10:07:07,717 - root - DEBUG - Updating hall of fame
+2020-07-29 10:07:08,456 - root - INFO - Completed generation 60; 1.8s elapsed, 2.1s avg, 1.2e+02s total. Expected time remaining: 2.9e+02s
+2020-07-29 10:07:08,510 - root - INFO - #60 MAX:accuracy.mean: 0.79
+2020-07-29 10:07:08,672 - root - DEBUG - Sampled weight [0.97825152 1.20471068 0.82524361 0.49737612 1.22549689]
+2020-07-29 10:07:09,727 - root - DEBUG - Updating hall of fame
+2020-07-29 10:07:10,460 - root - INFO - Completed generation 61; 1.8s elapsed, 2.1s avg, 1.3e+02s total. Expected time remaining: 2.9e+02s
+2020-07-29 10:07:10,514 - root - INFO - #61 MAX:accuracy.mean: 0.75
+2020-07-29 10:07:10,554 - root - DEBUG - Sampled weight [1.36131104 0.77153906 1.69407896 0.54416747 1.28494067]
+2020-07-29 10:07:11,609 - root - DEBUG - Updating hall of fame
+2020-07-29 10:07:12,544 - root - INFO - Completed generation 62; 2.0s elapsed, 2.1s avg, 1.3e+02s total. Expected time remaining: 2.9e+02s
+2020-07-29 10:07:12,598 - root - INFO - #62 MAX:accuracy.mean: 0.69
+2020-07-29 10:07:12,637 - root - DEBUG - Sampled weight [0.6451803  2.85606103 0.48025812 1.09375056 0.47232516]
+2020-07-29 10:07:13,693 - root - DEBUG - Updating hall of fame
+2020-07-29 10:07:14,618 - root - INFO - Completed generation 63; 2.0s elapsed, 2.1s avg, 1.3e+02s total. Expected time remaining: 2.8e+02s
+2020-07-29 10:07:14,672 - root - INFO - #63 MAX:accuracy.mean: 0.7
+2020-07-29 10:07:14,713 - root - DEBUG - Sampled weight [0.46378367 1.29084337 0.91233198 0.79003357 1.45668038]
+2020-07-29 10:07:15,770 - root - DEBUG - Updating hall of fame
+2020-07-29 10:07:16,337 - root - INFO - Completed generation 64; 1.7s elapsed, 2.1s avg, 1.3e+02s total. Expected time remaining: 2.8e+02s
+2020-07-29 10:07:16,391 - root - INFO - #64 MAX:accuracy.mean: 0.69
+2020-07-29 10:07:16,432 - root - DEBUG - Sampled weight [0.43803632 0.68814952 1.3617211  0.53221514 2.09494666]
+2020-07-29 10:07:17,492 - root - DEBUG - Updating hall of fame
+2020-07-29 10:07:18,433 - root - INFO - Completed generation 65; 2.0s elapsed, 2.1s avg, 1.3e+02s total. Expected time remaining: 2.8e+02s
+2020-07-29 10:07:18,487 - root - INFO - #65 MAX:accuracy.mean: 0.69
+2020-07-29 10:07:18,526 - root - DEBUG - Sampled weight [0.74202819 0.44570715 2.96798881 2.36635614 1.64986575]
+2020-07-29 10:07:19,581 - root - DEBUG - Updating hall of fame
+2020-07-29 10:07:20,154 - root - INFO - Completed generation 66; 1.7s elapsed, 2.1s avg, 1.4e+02s total. Expected time remaining: 2.8e+02s
+2020-07-29 10:07:20,209 - root - INFO - #66 MAX:accuracy.mean: 0.68
+2020-07-29 10:07:20,249 - root - DEBUG - Sampled weight [0.8887101  0.51631991 1.22133337 0.93486572 0.65309473]
+2020-07-29 10:07:21,304 - root - DEBUG - Updating hall of fame
+2020-07-29 10:07:21,687 - root - INFO - Completed generation 67; 1.5s elapsed, 2.1s avg, 1.4e+02s total. Expected time remaining: 2.7e+02s
+2020-07-29 10:07:21,742 - root - INFO - #67 MAX:accuracy.mean: 0.74
+2020-07-29 10:07:21,782 - root - DEBUG - Sampled weight [1.11487941 0.90100736 0.83590263 0.80994783 1.73011481]
+2020-07-29 10:07:22,841 - root - DEBUG - Updating hall of fame
+2020-07-29 10:07:23,933 - root - INFO - Completed generation 68; 2.2s elapsed, 2.1s avg, 1.4e+02s total. Expected time remaining: 2.7e+02s
+2020-07-29 10:07:23,988 - root - INFO - #68 MAX:accuracy.mean: 0.76
+2020-07-29 10:07:24,027 - root - DEBUG - Sampled weight [1.61644155 0.70687603 1.44432955 0.78163562 0.92765054]
+2020-07-29 10:07:25,082 - root - DEBUG - Updating hall of fame
+2020-07-29 10:07:26,174 - root - INFO - Completed generation 69; 2.2s elapsed, 2.1s avg, 1.4e+02s total. Expected time remaining: 2.7e+02s
+2020-07-29 10:07:26,228 - root - INFO - #69 MAX:accuracy.mean: 0.72
+2020-07-29 10:07:26,269 - root - DEBUG - Sampled weight [1.1001546  1.05918032 0.61704318 0.6529877  0.66507747]
+2020-07-29 10:07:27,329 - root - DEBUG - Updating hall of fame
+2020-07-29 10:07:27,693 - root - INFO - Completed generation 70; 1.5s elapsed, 2.0s avg, 1.4e+02s total. Expected time remaining: 2.7e+02s
+2020-07-29 10:07:27,747 - root - INFO - #70 MAX:accuracy.mean: 0.78
+2020-07-29 10:07:27,840 - root - DEBUG - Sampled weight [0.77575052 1.56085364 1.30468562 2.22355551 0.80073211]
+2020-07-29 10:07:28,897 - root - DEBUG - Updating hall of fame
+2020-07-29 10:07:29,622 - root - INFO - Completed generation 71; 1.8s elapsed, 2.0s avg, 1.5e+02s total. Expected time remaining: 2.6e+02s
+2020-07-29 10:07:29,677 - root - INFO - #71 MAX:accuracy.mean: 0.76
+2020-07-29 10:07:29,716 - root - DEBUG - Sampled weight [1.05505628 1.64536712 2.21223035 1.2441013  0.62199661]
+2020-07-29 10:07:30,771 - root - DEBUG - Updating hall of fame
+2020-07-29 10:07:30,954 - root - INFO - Completed generation 72; 1.3s elapsed, 2.0s avg, 1.5e+02s total. Expected time remaining: 2.6e+02s
+2020-07-29 10:07:31,008 - root - INFO - #72 MAX:accuracy.mean: 0.71
+2020-07-29 10:07:31,048 - root - DEBUG - Sampled weight [2.27530281 0.72907255 1.42021627 0.57672732 1.42454455]
+2020-07-29 10:07:32,110 - root - DEBUG - Updating hall of fame
+2020-07-29 10:07:32,860 - root - INFO - Completed generation 73; 1.9s elapsed, 2.0s avg, 1.5e+02s total. Expected time remaining: 2.6e+02s
+2020-07-29 10:07:32,915 - root - INFO - #73 MAX:accuracy.mean: 0.74
+2020-07-29 10:07:32,956 - root - DEBUG - Sampled weight [0.79571952 1.4664414  0.91630902 0.42544273 0.54551957]
+2020-07-29 10:07:34,017 - root - DEBUG - Updating hall of fame
+2020-07-29 10:07:34,589 - root - INFO - Completed generation 74; 1.7s elapsed, 2.0s avg, 1.5e+02s total. Expected time remaining: 2.6e+02s
+2020-07-29 10:07:34,644 - root - INFO - #74 MAX:accuracy.mean: 0.73
+2020-07-29 10:07:34,685 - root - DEBUG - Sampled weight [0.70894426 1.56470674 0.66584731 0.89529889 0.5870845 ]
+2020-07-29 10:07:35,749 - root - DEBUG - Updating hall of fame
+2020-07-29 10:07:37,027 - root - INFO - Completed generation 75; 2.4s elapsed, 2.0s avg, 1.5e+02s total. Expected time remaining: 2.5e+02s
+2020-07-29 10:07:37,081 - root - INFO - #75 MAX:accuracy.mean: 0.75
+2020-07-29 10:07:37,122 - root - DEBUG - Sampled weight [0.3692777  1.21102661 1.13335158 1.12374098 0.85731651]
+2020-07-29 10:07:38,184 - root - DEBUG - Updating hall of fame
+2020-07-29 10:07:38,946 - root - INFO - Completed generation 76; 1.9s elapsed, 2.0s avg, 1.5e+02s total. Expected time remaining: 2.5e+02s
+2020-07-29 10:07:39,000 - root - INFO - #76 MAX:accuracy.mean: 0.79
+2020-07-29 10:07:39,041 - root - DEBUG - Sampled weight [0.71538989 1.0073269  2.18463064 0.83448012 0.92410015]
+2020-07-29 10:07:40,107 - root - DEBUG - Updating hall of fame
+2020-07-29 10:07:41,219 - root - INFO - Completed generation 77; 2.2s elapsed, 2.0s avg, 1.6e+02s total. Expected time remaining: 2.5e+02s
+2020-07-29 10:07:41,273 - root - INFO - #77 MAX:accuracy.mean: 0.84
+2020-07-29 10:07:41,314 - root - DEBUG - Sampled weight [0.77648667 1.13719582 0.75742841 0.92452524 1.13833595]
+2020-07-29 10:07:42,378 - root - DEBUG - Updating hall of fame
+2020-07-29 10:07:42,951 - root - INFO - Completed generation 78; 1.7s elapsed, 2.0s avg, 1.6e+02s total. Expected time remaining: 2.5e+02s
+2020-07-29 10:07:43,006 - root - INFO - #78 MAX:accuracy.mean: 0.86
+2020-07-29 10:07:43,046 - root - DEBUG - Sampled weight [0.98936072 0.86836171 0.69447638 0.64707797 1.58581004]
+2020-07-29 10:07:44,111 - root - DEBUG - Updating hall of fame
+2020-07-29 10:07:45,038 - root - INFO - Completed generation 79; 2.0s elapsed, 2.0s avg, 1.6e+02s total. Expected time remaining: 2.5e+02s
+2020-07-29 10:07:45,093 - root - INFO - #79 MAX:accuracy.mean: 0.78
+2020-07-29 10:07:45,133 - root - DEBUG - Sampled weight [1.30048779 1.4663872  2.46192098 1.97265152 0.94837257]
+2020-07-29 10:07:46,199 - root - DEBUG - Updating hall of fame
+2020-07-29 10:07:46,585 - root - INFO - Completed generation 80; 1.5s elapsed, 2.0s avg, 1.6e+02s total. Expected time remaining: 2.4e+02s
+2020-07-29 10:07:46,639 - root - INFO - #80 MAX:accuracy.mean: 0.78
+2020-07-29 10:07:46,742 - root - DEBUG - Sampled weight [1.02736679 0.78141649 0.9258243  1.05427635 1.16624282]
+2020-07-29 10:07:47,800 - root - DEBUG - Updating hall of fame
+2020-07-29 10:07:48,174 - root - INFO - Completed generation 81; 1.5s elapsed, 2.0s avg, 1.6e+02s total. Expected time remaining: 2.4e+02s
+2020-07-29 10:07:48,228 - root - INFO - #81 MAX:accuracy.mean: 0.89
+2020-07-29 10:07:48,269 - root - DEBUG - Sampled weight [1.29534335 1.53357928 1.16599124 0.5409817  1.27886332]
+2020-07-29 10:07:49,343 - root - DEBUG - Updating hall of fame
+2020-07-29 10:07:50,458 - root - INFO - Completed generation 82; 2.2s elapsed, 2.0s avg, 1.7e+02s total. Expected time remaining: 2.4e+02s
+2020-07-29 10:07:50,513 - root - INFO - #82 MAX:accuracy.mean: 0.77
+2020-07-29 10:07:50,553 - root - DEBUG - Sampled weight [0.83957644 1.17177878 0.81823186 0.63548096 0.69985173]
+2020-07-29 10:07:51,626 - root - DEBUG - Updating hall of fame
+2020-07-29 10:07:52,398 - root - INFO - Completed generation 83; 1.9s elapsed, 2.0s avg, 1.7e+02s total. Expected time remaining: 2.4e+02s
+2020-07-29 10:07:52,453 - root - INFO - #83 MAX:accuracy.mean: 0.76
+2020-07-29 10:07:52,494 - root - DEBUG - Sampled weight [1.35496737 3.73646903 0.50732338 0.87519632 1.27751915]
+2020-07-29 10:07:53,568 - root - DEBUG - Updating hall of fame
+2020-07-29 10:07:54,874 - root - INFO - Completed generation 84; 2.4s elapsed, 2.0s avg, 1.7e+02s total. Expected time remaining: 2.3e+02s
+2020-07-29 10:07:54,929 - root - INFO - #84 MAX:accuracy.mean: 0.72
+2020-07-29 10:07:54,969 - root - DEBUG - Sampled weight [1.61520442 1.00171954 0.71256138 0.46411184 0.73137395]
+2020-07-29 10:07:56,035 - root - DEBUG - Updating hall of fame
+2020-07-29 10:07:56,609 - root - INFO - Completed generation 85; 1.7s elapsed, 2.0s avg, 1.7e+02s total. Expected time remaining: 2.3e+02s
+2020-07-29 10:07:56,663 - root - INFO - #85 MAX:accuracy.mean: 0.72
+2020-07-29 10:07:56,703 - root - DEBUG - Sampled weight [1.60660761 0.68661324 0.67501383 1.98783142 1.61993145]
+2020-07-29 10:07:57,769 - root - DEBUG - Updating hall of fame
+2020-07-29 10:07:59,251 - root - INFO - Completed generation 86; 2.6s elapsed, 2.0s avg, 1.7e+02s total. Expected time remaining: 2.3e+02s
+2020-07-29 10:07:59,309 - root - INFO - #86 MAX:accuracy.mean: 0.71
+2020-07-29 10:07:59,352 - root - DEBUG - Sampled weight [1.00555041 0.79256538 0.93859952 1.16585775 0.88631108]
+2020-07-29 10:08:00,492 - root - DEBUG - Updating hall of fame
+2020-07-29 10:08:01,098 - root - INFO - Completed generation 87; 1.8s elapsed, 2.0s avg, 1.8e+02s total. Expected time remaining: 2.3e+02s
+2020-07-29 10:08:01,157 - root - INFO - #87 MAX:accuracy.mean: 0.91
+2020-07-29 10:08:01,200 - root - DEBUG - Sampled weight [1.60999862 0.93869586 0.64587278 1.19522716 0.54625121]
+2020-07-29 10:08:02,346 - root - DEBUG - Updating hall of fame
+2020-07-29 10:08:03,515 - root - INFO - Completed generation 88; 2.4s elapsed, 2.0s avg, 1.8e+02s total. Expected time remaining: 2.3e+02s
+2020-07-29 10:08:03,571 - root - INFO - #88 MAX:accuracy.mean: 0.72
+2020-07-29 10:08:03,613 - root - DEBUG - Sampled weight [1.56614115 1.19510424 0.48556163 0.77010911 0.96528937]
+2020-07-29 10:08:04,706 - root - DEBUG - Updating hall of fame
+2020-07-29 10:08:05,108 - root - INFO - Completed generation 89; 1.5s elapsed, 2.0s avg, 1.8e+02s total. Expected time remaining: 2.2e+02s
+2020-07-29 10:08:05,163 - root - INFO - #89 MAX:accuracy.mean: 0.72
+2020-07-29 10:08:05,205 - root - DEBUG - Sampled weight [0.70380826 0.49370207 5.3001125  0.43155517 1.46439756]
+2020-07-29 10:08:06,288 - root - DEBUG - Updating hall of fame
+2020-07-29 10:08:07,035 - root - INFO - Completed generation 90; 1.9s elapsed, 2.0s avg, 1.8e+02s total. Expected time remaining: 2.2e+02s
+2020-07-29 10:08:07,089 - root - INFO - #90 MAX:accuracy.mean: 0.71
+2020-07-29 10:08:07,198 - root - DEBUG - Sampled weight [0.87250078 1.10408006 1.90914793 0.57020376 1.29924196]
+2020-07-29 10:08:08,261 - root - DEBUG - Updating hall of fame
+2020-07-29 10:08:08,823 - root - INFO - Completed generation 91; 1.7s elapsed, 2.0s avg, 1.8e+02s total. Expected time remaining: 2.2e+02s
+2020-07-29 10:08:08,877 - root - INFO - #91 MAX:accuracy.mean: 0.75
+2020-07-29 10:08:08,917 - root - DEBUG - Sampled weight [0.81456141 0.47935078 0.91760186 1.36030528 0.90852358]
+2020-07-29 10:08:09,983 - root - DEBUG - Updating hall of fame
+2020-07-29 10:08:10,921 - root - INFO - Completed generation 92; 2.0s elapsed, 2.0s avg, 1.9e+02s total. Expected time remaining: 2.2e+02s
+2020-07-29 10:08:10,975 - root - INFO - #92 MAX:accuracy.mean: 0.77
+2020-07-29 10:08:11,015 - root - DEBUG - Sampled weight [1.0879313  1.39750533 1.2453603  1.22196452 0.68904674]
+2020-07-29 10:08:12,082 - root - DEBUG - Updating hall of fame
+2020-07-29 10:08:13,186 - root - INFO - Completed generation 93; 2.2s elapsed, 2.0s avg, 1.9e+02s total. Expected time remaining: 2.2e+02s
+2020-07-29 10:08:13,240 - root - INFO - #93 MAX:accuracy.mean: 0.83
+2020-07-29 10:08:13,282 - root - DEBUG - Sampled weight [0.88864689 1.88695536 1.15919683 0.6440868  1.3048684 ]
+2020-07-29 10:08:14,351 - root - DEBUG - Updating hall of fame
+2020-07-29 10:08:14,731 - root - INFO - Completed generation 94; 1.5s elapsed, 2.0s avg, 1.9e+02s total. Expected time remaining: 2.1e+02s
+2020-07-29 10:08:14,786 - root - INFO - #94 MAX:accuracy.mean: 0.76
+2020-07-29 10:08:14,828 - root - DEBUG - Sampled weight [1.24015835 0.51046817 1.9243913  0.67529757 1.31907958]
+2020-07-29 10:08:15,900 - root - DEBUG - Updating hall of fame
+2020-07-29 10:08:16,443 - root - INFO - Completed generation 95; 1.7s elapsed, 2.0s avg, 1.9e+02s total. Expected time remaining: 2.1e+02s
+2020-07-29 10:08:16,498 - root - INFO - #95 MAX:accuracy.mean: 0.69
+2020-07-29 10:08:16,540 - root - DEBUG - Sampled weight [2.20973318 0.83645098 0.74736945 0.82625553 0.68227939]
+2020-07-29 10:08:17,616 - root - DEBUG - Updating hall of fame
+2020-07-29 10:08:17,984 - root - INFO - Completed generation 96; 1.5s elapsed, 2.0s avg, 1.9e+02s total. Expected time remaining: 2.1e+02s
+2020-07-29 10:08:18,038 - root - INFO - #96 MAX:accuracy.mean: 0.83
+2020-07-29 10:08:18,079 - root - DEBUG - Sampled weight [1.43123505 1.01525012 0.60357262 1.17798465 1.13296689]
+2020-07-29 10:08:19,158 - root - DEBUG - Updating hall of fame
+2020-07-29 10:08:19,884 - root - INFO - Completed generation 97; 1.8s elapsed, 2.0s avg, 1.9e+02s total. Expected time remaining: 2.1e+02s
+2020-07-29 10:08:19,939 - root - INFO - #97 MAX:accuracy.mean: 0.8
+2020-07-29 10:08:19,979 - root - DEBUG - Sampled weight [1.0479727  1.28692145 0.83708569 0.89854857 0.48018253]
+2020-07-29 10:08:21,066 - root - DEBUG - Updating hall of fame
+2020-07-29 10:08:21,809 - root - INFO - Completed generation 98; 1.9s elapsed, 2.0s avg, 2e+02s total. Expected time remaining: 2e+02s
+2020-07-29 10:08:21,863 - root - INFO - #98 MAX:accuracy.mean: 0.79
+2020-07-29 10:08:21,904 - root - DEBUG - Sampled weight [1.10785318 0.95432549 1.11072812 0.63944676 1.67600534]
+2020-07-29 10:08:22,972 - root - DEBUG - Updating hall of fame
+2020-07-29 10:08:23,522 - root - INFO - Completed generation 99; 1.7s elapsed, 2.0s avg, 2e+02s total. Expected time remaining: 2e+02s
+2020-07-29 10:08:23,577 - root - INFO - #99 MAX:accuracy.mean: 0.78
+2020-07-29 10:08:23,617 - root - DEBUG - Sampled weight [1.02867536 0.83695416 1.09083687 1.57663593 1.1411878 ]
+2020-07-29 10:08:24,692 - root - DEBUG - Updating hall of fame
+2020-07-29 10:08:25,055 - root - INFO - Completed generation 100; 1.5s elapsed, 2.0s avg, 2e+02s total. Expected time remaining: 2e+02s
+2020-07-29 10:08:25,110 - root - INFO - #100 MAX:accuracy.mean: 0.88
+2020-07-29 10:08:25,251 - root - DEBUG - Sampled weight [1.24409508 0.75391168 0.35231148 0.79519013 1.46985603]
+2020-07-29 10:08:26,321 - root - DEBUG - Updating hall of fame
+2020-07-29 10:08:27,054 - root - INFO - Completed generation 101; 1.8s elapsed, 2.0s avg, 2e+02s total. Expected time remaining: 2e+02s
+2020-07-29 10:08:27,109 - root - INFO - #101 MAX:accuracy.mean: 0.72
+2020-07-29 10:08:27,149 - root - DEBUG - Sampled weight [1.04262812 1.00742454 2.69290007 0.96420912 1.28100887]
+2020-07-29 10:08:28,221 - root - DEBUG - Updating hall of fame
+2020-07-29 10:08:28,404 - root - INFO - Completed generation 102; 1.3s elapsed, 2.0s avg, 2e+02s total. Expected time remaining: 1.9e+02s
+2020-07-29 10:08:28,458 - root - INFO - #102 MAX:accuracy.mean: 0.88
+2020-07-29 10:08:28,499 - root - DEBUG - Sampled weight [1.03726887 1.26260464 0.67586743 1.72552725 0.58605984]
+2020-07-29 10:08:29,578 - root - DEBUG - Updating hall of fame
+2020-07-29 10:08:30,141 - root - INFO - Completed generation 103; 1.7s elapsed, 2.0s avg, 2e+02s total. Expected time remaining: 1.9e+02s
+2020-07-29 10:08:30,196 - root - INFO - #103 MAX:accuracy.mean: 0.71
+2020-07-29 10:08:30,236 - root - DEBUG - Sampled weight [1.74947028 3.20264275 0.96980663 0.77424528 2.60061643]
+2020-07-29 10:08:31,319 - root - DEBUG - Updating hall of fame
+2020-07-29 10:08:32,288 - root - INFO - Completed generation 104; 2.1s elapsed, 2.0s avg, 2.1e+02s total. Expected time remaining: 1.9e+02s
+2020-07-29 10:08:32,345 - root - INFO - #104 MAX:accuracy.mean: 0.72
+2020-07-29 10:08:32,387 - root - DEBUG - Sampled weight [2.31021733 2.16069675 2.7557562  0.76530588 1.42802325]
+2020-07-29 10:08:33,494 - root - DEBUG - Updating hall of fame
+2020-07-29 10:08:34,263 - root - INFO - Completed generation 105; 1.9s elapsed, 2.0s avg, 2.1e+02s total. Expected time remaining: 1.9e+02s
+2020-07-29 10:08:34,320 - root - INFO - #105 MAX:accuracy.mean: 0.71
+2020-07-29 10:08:34,360 - root - DEBUG - Sampled weight [1.34690636 1.06563906 0.83264778 1.51879021 0.79084341]
+2020-07-29 10:08:35,435 - root - DEBUG - Updating hall of fame
+2020-07-29 10:08:35,808 - root - INFO - Completed generation 106; 1.5s elapsed, 2.0s avg, 2.1e+02s total. Expected time remaining: 1.9e+02s
+2020-07-29 10:08:35,862 - root - INFO - #106 MAX:accuracy.mean: 0.83
+2020-07-29 10:08:35,903 - root - DEBUG - Sampled weight [1.15170393 1.2929031  1.58089824 1.4547635  0.47575012]
+2020-07-29 10:08:36,988 - root - DEBUG - Updating hall of fame
+2020-07-29 10:08:37,942 - root - INFO - Completed generation 107; 2.1s elapsed, 2.0s avg, 2.1e+02s total. Expected time remaining: 1.8e+02s
+2020-07-29 10:08:37,997 - root - INFO - #107 MAX:accuracy.mean: 0.72
+2020-07-29 10:08:38,037 - root - DEBUG - Sampled weight [1.25427572 1.0181417  1.14037864 0.72481777 0.28583601]
+2020-07-29 10:08:39,107 - root - DEBUG - Updating hall of fame
+2020-07-29 10:08:39,871 - root - INFO - Completed generation 108; 1.9s elapsed, 2.0s avg, 2.1e+02s total. Expected time remaining: 1.8e+02s
+2020-07-29 10:08:39,925 - root - INFO - #108 MAX:accuracy.mean: 0.76
+2020-07-29 10:08:39,966 - root - DEBUG - Sampled weight [1.62221788 1.75609724 0.79329081 0.64852889 1.5298358 ]
+2020-07-29 10:08:41,038 - root - DEBUG - Updating hall of fame
+2020-07-29 10:08:42,156 - root - INFO - Completed generation 109; 2.2s elapsed, 2.0s avg, 2.2e+02s total. Expected time remaining: 1.8e+02s
+2020-07-29 10:08:42,210 - root - INFO - #109 MAX:accuracy.mean: 0.71
+2020-07-29 10:08:42,250 - root - DEBUG - Sampled weight [0.93605088 0.86985963 0.81166424 0.98755309 2.09010907]
+2020-07-29 10:08:43,323 - root - DEBUG - Updating hall of fame
+2020-07-29 10:08:43,879 - root - INFO - Completed generation 110; 1.7s elapsed, 2.0s avg, 2.2e+02s total. Expected time remaining: 1.8e+02s
+2020-07-29 10:08:43,934 - root - INFO - #110 MAX:accuracy.mean: 0.86
+2020-07-29 10:08:44,079 - root - DEBUG - Sampled weight [0.7137156  1.05941841 1.41250192 1.1981336  0.83153518]
+2020-07-29 10:08:45,160 - root - DEBUG - Updating hall of fame
+2020-07-29 10:08:46,098 - root - INFO - Completed generation 111; 2.1s elapsed, 2.0s avg, 2.2e+02s total. Expected time remaining: 1.8e+02s
+2020-07-29 10:08:46,153 - root - INFO - #111 MAX:accuracy.mean: 0.84
+2020-07-29 10:08:46,193 - root - DEBUG - Sampled weight [0.86775928 0.92129327 0.49897489 0.79019111 0.92757645]
+2020-07-29 10:08:47,270 - root - DEBUG - Updating hall of fame
+2020-07-29 10:08:48,389 - root - INFO - Completed generation 112; 2.2s elapsed, 2.0s avg, 2.2e+02s total. Expected time remaining: 1.7e+02s
+2020-07-29 10:08:48,444 - root - INFO - #112 MAX:accuracy.mean: 0.82
+2020-07-29 10:08:48,485 - root - DEBUG - Sampled weight [1.05902542 1.51297589 1.04759965 0.33894531 1.37970425]
+2020-07-29 10:08:49,558 - root - DEBUG - Updating hall of fame
+2020-07-29 10:08:50,676 - root - INFO - Completed generation 113; 2.2s elapsed, 2.0s avg, 2.2e+02s total. Expected time remaining: 1.7e+02s
+2020-07-29 10:08:50,731 - root - INFO - #113 MAX:accuracy.mean: 0.75
+2020-07-29 10:08:50,771 - root - DEBUG - Sampled weight [0.93684641 1.63126654 1.52747704 0.93760529 1.33018261]
+2020-07-29 10:08:51,844 - root - DEBUG - Updating hall of fame
+2020-07-29 10:08:52,594 - root - INFO - Completed generation 114; 1.9s elapsed, 2.0s avg, 2.3e+02s total. Expected time remaining: 1.7e+02s
+2020-07-29 10:08:52,648 - root - INFO - #114 MAX:accuracy.mean: 0.81
+2020-07-29 10:08:52,688 - root - DEBUG - Sampled weight [1.26153486 1.26805321 1.32320352 1.09905054 0.88474884]
+2020-07-29 10:08:53,758 - root - DEBUG - Updating hall of fame
+2020-07-29 10:08:54,312 - root - INFO - Completed generation 115; 1.7s elapsed, 2.0s avg, 2.3e+02s total. Expected time remaining: 1.7e+02s
+2020-07-29 10:08:54,367 - root - INFO - #115 MAX:accuracy.mean: 0.89
+2020-07-29 10:08:54,407 - root - DEBUG - Sampled weight [1.07581691 0.46156784 0.74912951 1.32715823 1.08168229]
+2020-07-29 10:08:55,483 - root - DEBUG - Updating hall of fame
+2020-07-29 10:08:56,790 - root - INFO - Completed generation 116; 2.4s elapsed, 2.0s avg, 2.3e+02s total. Expected time remaining: 1.7e+02s
+2020-07-29 10:08:56,844 - root - INFO - #116 MAX:accuracy.mean: 0.76
+2020-07-29 10:08:56,885 - root - DEBUG - Sampled weight [0.76176763 1.18889081 1.05607951 1.19301286 2.40923854]
+2020-07-29 10:08:57,954 - root - DEBUG - Updating hall of fame
+2020-07-29 10:08:58,709 - root - INFO - Completed generation 117; 1.9s elapsed, 2.0s avg, 2.3e+02s total. Expected time remaining: 1.6e+02s
+2020-07-29 10:08:58,763 - root - INFO - #117 MAX:accuracy.mean: 0.83
+2020-07-29 10:08:58,803 - root - DEBUG - Sampled weight [0.78767261 1.35167431 0.46254512 1.01802533 0.56484668]
+2020-07-29 10:08:59,871 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:00,462 - root - INFO - Completed generation 118; 1.7s elapsed, 2.0s avg, 2.3e+02s total. Expected time remaining: 1.6e+02s
+2020-07-29 10:09:00,516 - root - INFO - #118 MAX:accuracy.mean: 0.72
+2020-07-29 10:09:00,557 - root - DEBUG - Sampled weight [0.61769685 0.61253805 0.56529009 1.227077   0.72571559]
+2020-07-29 10:09:01,638 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:02,978 - root - INFO - Completed generation 119; 2.5s elapsed, 2.0s avg, 2.4e+02s total. Expected time remaining: 1.6e+02s
+2020-07-29 10:09:03,032 - root - INFO - #119 MAX:accuracy.mean: 0.87
+2020-07-29 10:09:03,072 - root - DEBUG - Sampled weight [1.15443184 1.16234485 0.82389144 1.06410141 1.34318629]
+2020-07-29 10:09:04,175 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:04,911 - root - INFO - Completed generation 120; 1.9s elapsed, 2.0s avg, 2.4e+02s total. Expected time remaining: 1.6e+02s
+2020-07-29 10:09:04,965 - root - INFO - #120 MAX:accuracy.mean: 0.89
+2020-07-29 10:09:05,070 - root - DEBUG - Sampled weight [1.58107259 2.98739062 1.27178313 0.53871614 0.30497284]
+2020-07-29 10:09:06,132 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:07,064 - root - INFO - Completed generation 121; 2.0s elapsed, 2.0s avg, 2.4e+02s total. Expected time remaining: 1.6e+02s
+2020-07-29 10:09:07,118 - root - INFO - #121 MAX:accuracy.mean: 0.72
+2020-07-29 10:09:07,159 - root - DEBUG - Sampled weight [1.38503829 0.54623086 1.51523589 1.44011073 0.70419801]
+2020-07-29 10:09:08,216 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:08,410 - root - INFO - Completed generation 122; 1.3s elapsed, 2.0s avg, 2.4e+02s total. Expected time remaining: 1.5e+02s
+2020-07-29 10:09:08,464 - root - INFO - #122 MAX:accuracy.mean: 0.72
+2020-07-29 10:09:08,505 - root - DEBUG - Sampled weight [0.36284182 0.83237917 1.64428416 0.85769704 0.96742576]
+2020-07-29 10:09:09,579 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:10,134 - root - INFO - Completed generation 123; 1.7s elapsed, 2.0s avg, 2.4e+02s total. Expected time remaining: 1.5e+02s
+2020-07-29 10:09:10,188 - root - INFO - #123 MAX:accuracy.mean: 0.77
+2020-07-29 10:09:10,229 - root - DEBUG - Sampled weight [1.19785813 0.44982816 0.87306225 0.66889799 0.57442368]
+2020-07-29 10:09:11,295 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:12,415 - root - INFO - Completed generation 124; 2.2s elapsed, 2.0s avg, 2.4e+02s total. Expected time remaining: 1.5e+02s
+2020-07-29 10:09:12,470 - root - INFO - #124 MAX:accuracy.mean: 0.75
+2020-07-29 10:09:12,510 - root - DEBUG - Sampled weight [0.70661589 1.43210968 0.91036837 0.9166735  0.59553354]
+2020-07-29 10:09:13,575 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:14,875 - root - INFO - Completed generation 125; 2.4s elapsed, 2.0s avg, 2.5e+02s total. Expected time remaining: 1.5e+02s
+2020-07-29 10:09:14,929 - root - INFO - #125 MAX:accuracy.mean: 0.74
+2020-07-29 10:09:14,970 - root - DEBUG - Sampled weight [0.36390256 1.03489964 0.62413928 0.86921405 1.84195579]
+2020-07-29 10:09:16,046 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:16,978 - root - INFO - Completed generation 126; 2.0s elapsed, 2.0s avg, 2.5e+02s total. Expected time remaining: 1.5e+02s
+2020-07-29 10:09:17,032 - root - INFO - #126 MAX:accuracy.mean: 0.72
+2020-07-29 10:09:17,073 - root - DEBUG - Sampled weight [1.06345498 0.44955825 1.6659094  0.94587096 1.39555478]
+2020-07-29 10:09:18,136 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:19,063 - root - INFO - Completed generation 127; 2.0s elapsed, 2.0s avg, 2.5e+02s total. Expected time remaining: 1.4e+02s
+2020-07-29 10:09:19,119 - root - INFO - #127 MAX:accuracy.mean: 0.75
+2020-07-29 10:09:19,159 - root - DEBUG - Sampled weight [1.05246432 1.92137108 2.23511847 0.92826669 0.65482138]
+2020-07-29 10:09:20,215 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:20,942 - root - INFO - Completed generation 128; 1.8s elapsed, 2.0s avg, 2.5e+02s total. Expected time remaining: 1.4e+02s
+2020-07-29 10:09:20,996 - root - INFO - #128 MAX:accuracy.mean: 0.71
+2020-07-29 10:09:21,036 - root - DEBUG - Sampled weight [0.76465347 0.65068356 0.91336071 0.7554657  1.42209241]
+2020-07-29 10:09:22,086 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:22,267 - root - INFO - Completed generation 129; 1.3s elapsed, 2.0s avg, 2.5e+02s total. Expected time remaining: 1.4e+02s
+2020-07-29 10:09:22,322 - root - INFO - #129 MAX:accuracy.mean: 0.82
+2020-07-29 10:09:22,362 - root - DEBUG - Sampled weight [1.10714011 2.48466831 0.43540808 1.79765823 0.64568234]
+2020-07-29 10:09:23,418 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:24,332 - root - INFO - Completed generation 130; 2.0s elapsed, 2.0s avg, 2.6e+02s total. Expected time remaining: 1.4e+02s
+2020-07-29 10:09:24,386 - root - INFO - #130 MAX:accuracy.mean: 0.71
+2020-07-29 10:09:24,496 - root - DEBUG - Sampled weight [1.60882131 0.9743743  0.58761227 0.76834051 1.60514842]
+2020-07-29 10:09:25,554 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:26,097 - root - INFO - Completed generation 131; 1.6s elapsed, 2.0s avg, 2.6e+02s total. Expected time remaining: 1.4e+02s
+2020-07-29 10:09:26,152 - root - INFO - #131 MAX:accuracy.mean: 0.74
+2020-07-29 10:09:26,193 - root - DEBUG - Sampled weight [0.89168599 0.61741777 0.64321338 1.28132626 1.23123681]
+2020-07-29 10:09:27,262 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:28,368 - root - INFO - Completed generation 132; 2.2s elapsed, 2.0s avg, 2.6e+02s total. Expected time remaining: 1.3e+02s
+2020-07-29 10:09:28,422 - root - INFO - #132 MAX:accuracy.mean: 0.76
+2020-07-29 10:09:28,462 - root - DEBUG - Sampled weight [1.12189958 1.39420492 1.4889819  1.74602345 3.39574194]
+2020-07-29 10:09:29,538 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:30,458 - root - INFO - Completed generation 133; 2.0s elapsed, 2.0s avg, 2.6e+02s total. Expected time remaining: 1.3e+02s
+2020-07-29 10:09:30,512 - root - INFO - #133 MAX:accuracy.mean: 0.76
+2020-07-29 10:09:30,553 - root - DEBUG - Sampled weight [0.88572592 3.54448863 1.37186312 0.66956574 2.41631428]
+2020-07-29 10:09:31,611 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:31,970 - root - INFO - Completed generation 134; 1.5s elapsed, 2.0s avg, 2.6e+02s total. Expected time remaining: 1.3e+02s
+2020-07-29 10:09:32,025 - root - INFO - #134 MAX:accuracy.mean: 0.71
+2020-07-29 10:09:32,065 - root - DEBUG - Sampled weight [0.67203982 3.60017986 1.00053308 0.99426197 3.69633472]
+2020-07-29 10:09:33,191 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:33,582 - root - INFO - Completed generation 135; 1.6s elapsed, 2.0s avg, 2.7e+02s total. Expected time remaining: 1.3e+02s
+2020-07-29 10:09:33,640 - root - INFO - #135 MAX:accuracy.mean: 0.71
+2020-07-29 10:09:33,684 - root - DEBUG - Sampled weight [0.69622867 2.03095106 1.80472047 0.68383993 1.59287137]
+2020-07-29 10:09:34,783 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:35,148 - root - INFO - Completed generation 136; 1.5s elapsed, 2.0s avg, 2.7e+02s total. Expected time remaining: 1.3e+02s
+2020-07-29 10:09:35,202 - root - INFO - #136 MAX:accuracy.mean: 0.71
+2020-07-29 10:09:35,243 - root - DEBUG - Sampled weight [0.52139032 0.82305883 1.25466237 2.79699631 0.7193589 ]
+2020-07-29 10:09:36,303 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:36,484 - root - INFO - Completed generation 137; 1.3s elapsed, 2.0s avg, 2.7e+02s total. Expected time remaining: 1.2e+02s
+2020-07-29 10:09:36,539 - root - INFO - #137 MAX:accuracy.mean: 0.71
+2020-07-29 10:09:36,579 - root - DEBUG - Sampled weight [1.04946106 0.81062354 1.73071201 0.76178824 1.44274603]
+2020-07-29 10:09:37,640 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:37,822 - root - INFO - Completed generation 138; 1.3s elapsed, 2.0s avg, 2.7e+02s total. Expected time remaining: 1.2e+02s
+2020-07-29 10:09:37,877 - root - INFO - #138 MAX:accuracy.mean: 0.81
+2020-07-29 10:09:37,917 - root - DEBUG - Sampled weight [1.5841063  0.79483629 0.59423425 2.3643953  1.0514271 ]
+2020-07-29 10:09:38,985 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:39,902 - root - INFO - Completed generation 139; 2.0s elapsed, 2.0s avg, 2.7e+02s total. Expected time remaining: 1.2e+02s
+2020-07-29 10:09:39,956 - root - INFO - #139 MAX:accuracy.mean: 0.71
+2020-07-29 10:09:39,996 - root - DEBUG - Sampled weight [0.7430963  2.94649154 0.49036648 1.42317386 0.5143797 ]
+2020-07-29 10:09:41,057 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:41,420 - root - INFO - Completed generation 140; 1.5s elapsed, 1.9s avg, 2.7e+02s total. Expected time remaining: 1.2e+02s
+2020-07-29 10:09:41,475 - root - INFO - #140 MAX:accuracy.mean: 0.71
+2020-07-29 10:09:42,228 - root - DEBUG - Sampled weight [1.49696272 1.08845979 0.58364528 0.99276567 0.94122432]
+2020-07-29 10:09:43,285 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:43,648 - root - INFO - Completed generation 141; 1.5s elapsed, 1.9s avg, 2.7e+02s total. Expected time remaining: 1.1e+02s
+2020-07-29 10:09:43,702 - root - INFO - #141 MAX:accuracy.mean: 0.75
+2020-07-29 10:09:43,744 - root - DEBUG - Sampled weight [1.57758193 0.7749476  1.00231784 0.62259616 0.76340712]
+2020-07-29 10:09:44,814 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:45,185 - root - INFO - Completed generation 142; 1.5s elapsed, 1.9s avg, 2.8e+02s total. Expected time remaining: 1.1e+02s
+2020-07-29 10:09:45,240 - root - INFO - #142 MAX:accuracy.mean: 0.75
+2020-07-29 10:09:45,281 - root - DEBUG - Sampled weight [1.44736563 0.59310248 1.51900375 1.09003393 0.79515071]
+2020-07-29 10:09:46,350 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:46,531 - root - INFO - Completed generation 143; 1.3s elapsed, 1.9s avg, 2.8e+02s total. Expected time remaining: 1.1e+02s
+2020-07-29 10:09:46,586 - root - INFO - #143 MAX:accuracy.mean: 0.71
+2020-07-29 10:09:46,626 - root - DEBUG - Sampled weight [1.19349427 1.36470621 1.54137609 0.37916646 0.8386158 ]
+2020-07-29 10:09:47,707 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:48,082 - root - INFO - Completed generation 144; 1.5s elapsed, 1.9s avg, 2.8e+02s total. Expected time remaining: 1.1e+02s
+2020-07-29 10:09:48,136 - root - INFO - #144 MAX:accuracy.mean: 0.71
+2020-07-29 10:09:48,177 - root - DEBUG - Sampled weight [1.29496947 0.81955252 0.83969891 0.43876806 0.76434686]
+2020-07-29 10:09:49,236 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:49,789 - root - INFO - Completed generation 145; 1.7s elapsed, 1.9s avg, 2.8e+02s total. Expected time remaining: 1.1e+02s
+2020-07-29 10:09:49,843 - root - INFO - #145 MAX:accuracy.mean: 0.73
+2020-07-29 10:09:49,885 - root - DEBUG - Sampled weight [1.30468831 0.81726523 1.08636114 0.98273699 1.57843411]
+2020-07-29 10:09:50,962 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:51,694 - root - INFO - Completed generation 146; 1.9s elapsed, 1.9s avg, 2.8e+02s total. Expected time remaining: 1e+02s
+2020-07-29 10:09:51,748 - root - INFO - #146 MAX:accuracy.mean: 0.85
+2020-07-29 10:09:51,790 - root - DEBUG - Sampled weight [1.21779321 1.2990599  0.68796374 0.75130813 0.97077313]
+2020-07-29 10:09:52,863 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:53,607 - root - INFO - Completed generation 147; 1.9s elapsed, 1.9s avg, 2.8e+02s total. Expected time remaining: 1e+02s
+2020-07-29 10:09:53,661 - root - INFO - #147 MAX:accuracy.mean: 0.84
+2020-07-29 10:09:53,702 - root - DEBUG - Sampled weight [2.5227137  0.90556087 1.18707023 1.18772352 0.49888693]
+2020-07-29 10:09:54,782 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:55,581 - root - INFO - Completed generation 148; 1.9s elapsed, 1.9s avg, 2.9e+02s total. Expected time remaining: 1e+02s
+2020-07-29 10:09:55,636 - root - INFO - #148 MAX:accuracy.mean: 0.74
+2020-07-29 10:09:55,676 - root - DEBUG - Sampled weight [0.4069839  0.37624584 1.46230349 1.38149952 0.81577646]
+2020-07-29 10:09:56,742 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:57,296 - root - INFO - Completed generation 149; 1.7s elapsed, 1.9s avg, 2.9e+02s total. Expected time remaining: 9.8e+01s
+2020-07-29 10:09:57,351 - root - INFO - #149 MAX:accuracy.mean: 0.72
+2020-07-29 10:09:57,392 - root - DEBUG - Sampled weight [1.49516596 1.12324713 1.70682538 2.24221656 2.20094441]
+2020-07-29 10:09:58,471 - root - DEBUG - Updating hall of fame
+2020-07-29 10:09:59,400 - root - INFO - Completed generation 150; 2.0s elapsed, 1.9s avg, 2.9e+02s total. Expected time remaining: 9.7e+01s
+2020-07-29 10:09:59,454 - root - INFO - #150 MAX:accuracy.mean: 0.74
+2020-07-29 10:09:59,565 - root - DEBUG - Sampled weight [1.24528116 2.43343953 1.01409185 0.74996443 0.24191661]
+2020-07-29 10:10:00,627 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:01,192 - root - INFO - Completed generation 151; 1.7s elapsed, 1.9s avg, 2.9e+02s total. Expected time remaining: 9.4e+01s
+2020-07-29 10:10:01,250 - root - INFO - #151 MAX:accuracy.mean: 0.74
+2020-07-29 10:10:01,294 - root - DEBUG - Sampled weight [0.33726039 0.56904603 2.26765713 1.66210487 2.14871283]
+2020-07-29 10:10:02,436 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:02,992 - root - INFO - Completed generation 152; 1.7s elapsed, 1.9s avg, 2.9e+02s total. Expected time remaining: 9.3e+01s
+2020-07-29 10:10:03,047 - root - INFO - #152 MAX:accuracy.mean: 0.73
+2020-07-29 10:10:03,088 - root - DEBUG - Sampled weight [0.50574009 0.65977277 2.02534134 0.84044808 1.13325522]
+2020-07-29 10:10:04,152 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:04,346 - root - INFO - Completed generation 153; 1.3s elapsed, 1.9s avg, 2.9e+02s total. Expected time remaining: 9e+01s
+2020-07-29 10:10:04,400 - root - INFO - #153 MAX:accuracy.mean: 0.73
+2020-07-29 10:10:04,441 - root - DEBUG - Sampled weight [0.67770435 1.17804959 0.95452802 0.59666015 0.63794608]
+2020-07-29 10:10:05,498 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:06,593 - root - INFO - Completed generation 154; 2.2s elapsed, 1.9s avg, 3e+02s total. Expected time remaining: 8.9e+01s
+2020-07-29 10:10:06,648 - root - INFO - #154 MAX:accuracy.mean: 0.81
+2020-07-29 10:10:06,689 - root - DEBUG - Sampled weight [0.40500551 1.43841635 0.71387416 0.61062399 1.02272966]
+2020-07-29 10:10:07,755 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:08,484 - root - INFO - Completed generation 155; 1.8s elapsed, 1.9s avg, 3e+02s total. Expected time remaining: 8.7e+01s
+2020-07-29 10:10:08,538 - root - INFO - #155 MAX:accuracy.mean: 0.7
+2020-07-29 10:10:08,579 - root - DEBUG - Sampled weight [0.93681589 3.18028292 0.89422856 1.32403956 0.37970808]
+2020-07-29 10:10:09,642 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:10,007 - root - INFO - Completed generation 156; 1.5s elapsed, 1.9s avg, 3e+02s total. Expected time remaining: 8.5e+01s
+2020-07-29 10:10:10,061 - root - INFO - #156 MAX:accuracy.mean: 0.73
+2020-07-29 10:10:10,102 - root - DEBUG - Sampled weight [0.90228425 0.53358351 1.09465305 0.43469304 1.11614593]
+2020-07-29 10:10:11,164 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:11,526 - root - INFO - Completed generation 157; 1.5s elapsed, 1.9s avg, 3e+02s total. Expected time remaining: 8.2e+01s
+2020-07-29 10:10:11,580 - root - INFO - #157 MAX:accuracy.mean: 0.71
+2020-07-29 10:10:11,622 - root - DEBUG - Sampled weight [1.75133325 0.96923047 1.65038718 1.488941   1.98930966]
+2020-07-29 10:10:12,688 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:13,241 - root - INFO - Completed generation 158; 1.7s elapsed, 1.9s avg, 3e+02s total. Expected time remaining: 8.1e+01s
+2020-07-29 10:10:13,295 - root - INFO - #158 MAX:accuracy.mean: 0.72
+2020-07-29 10:10:13,336 - root - DEBUG - Sampled weight [0.75730802 1.19852728 0.68370075 1.28034734 0.64829651]
+2020-07-29 10:10:14,402 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:14,772 - root - INFO - Completed generation 159; 1.5s elapsed, 1.9s avg, 3e+02s total. Expected time remaining: 7.8e+01s
+2020-07-29 10:10:14,826 - root - INFO - #159 MAX:accuracy.mean: 0.74
+2020-07-29 10:10:14,867 - root - DEBUG - Sampled weight [0.66142898 0.78351169 1.36733406 1.57049679 0.87471782]
+2020-07-29 10:10:15,933 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:16,482 - root - INFO - Completed generation 160; 1.7s elapsed, 1.9s avg, 3.1e+02s total. Expected time remaining: 7.6e+01s
+2020-07-29 10:10:16,537 - root - INFO - #160 MAX:accuracy.mean: 0.79
+2020-07-29 10:10:16,653 - root - DEBUG - Sampled weight [0.96255079 0.88988885 0.57829315 0.81600432 1.17734129]
+2020-07-29 10:10:17,717 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:18,099 - root - INFO - Completed generation 161; 1.5s elapsed, 1.9s avg, 3.1e+02s total. Expected time remaining: 7.4e+01s
+2020-07-29 10:10:18,154 - root - INFO - #161 MAX:accuracy.mean: 0.82
+2020-07-29 10:10:18,195 - root - DEBUG - Sampled weight [0.60680384 2.04281534 0.74310306 0.85913255 0.92109238]
+2020-07-29 10:10:19,279 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:20,026 - root - INFO - Completed generation 162; 1.9s elapsed, 1.9s avg, 3.1e+02s total. Expected time remaining: 7.3e+01s
+2020-07-29 10:10:20,080 - root - INFO - #162 MAX:accuracy.mean: 0.76
+2020-07-29 10:10:20,121 - root - DEBUG - Sampled weight [0.27224468 1.404393   0.84574841 0.88312002 1.9304465 ]
+2020-07-29 10:10:21,196 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:21,742 - root - INFO - Completed generation 163; 1.7s elapsed, 1.9s avg, 3.1e+02s total. Expected time remaining: 7.1e+01s
+2020-07-29 10:10:21,797 - root - INFO - #163 MAX:accuracy.mean: 0.73
+2020-07-29 10:10:21,837 - root - DEBUG - Sampled weight [0.82367092 1.35889881 1.30170867 1.28224243 0.38218847]
+2020-07-29 10:10:22,903 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:23,633 - root - INFO - Completed generation 164; 1.8s elapsed, 1.9s avg, 3.1e+02s total. Expected time remaining: 6.9e+01s
+2020-07-29 10:10:23,688 - root - INFO - #164 MAX:accuracy.mean: 0.78
+2020-07-29 10:10:23,729 - root - DEBUG - Sampled weight [1.39751135 0.91794381 0.68994032 1.29387448 0.79550812]
+2020-07-29 10:10:24,793 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:25,528 - root - INFO - Completed generation 165; 1.8s elapsed, 1.9s avg, 3.1e+02s total. Expected time remaining: 6.7e+01s
+2020-07-29 10:10:25,582 - root - INFO - #165 MAX:accuracy.mean: 0.81
+2020-07-29 10:10:25,623 - root - DEBUG - Sampled weight [1.09675688 1.15197196 0.85119203 0.37179703 1.80872043]
+2020-07-29 10:10:26,701 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:27,623 - root - INFO - Completed generation 166; 2.0s elapsed, 1.9s avg, 3.2e+02s total. Expected time remaining: 6.5e+01s
+2020-07-29 10:10:27,678 - root - INFO - #166 MAX:accuracy.mean: 0.74
+2020-07-29 10:10:27,719 - root - DEBUG - Sampled weight [0.76271664 0.93098583 1.20821591 1.28299581 0.84165922]
+2020-07-29 10:10:28,790 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:29,162 - root - INFO - Completed generation 167; 1.5s elapsed, 1.9s avg, 3.2e+02s total. Expected time remaining: 6.3e+01s
+2020-07-29 10:10:29,217 - root - INFO - #167 MAX:accuracy.mean: 0.85
+2020-07-29 10:10:29,257 - root - DEBUG - Sampled weight [2.35617623 1.10722298 1.89087797 0.42005928 1.8115182 ]
+2020-07-29 10:10:30,327 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:31,065 - root - INFO - Completed generation 168; 1.8s elapsed, 1.9s avg, 3.2e+02s total. Expected time remaining: 6.1e+01s
+2020-07-29 10:10:31,120 - root - INFO - #168 MAX:accuracy.mean: 0.71
+2020-07-29 10:10:31,160 - root - DEBUG - Sampled weight [1.57545317 0.81751663 1.30610511 1.39597153 0.97771114]
+2020-07-29 10:10:32,224 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:32,586 - root - INFO - Completed generation 169; 1.5s elapsed, 1.9s avg, 3.2e+02s total. Expected time remaining: 5.9e+01s
+2020-07-29 10:10:32,640 - root - INFO - #169 MAX:accuracy.mean: 0.84
+2020-07-29 10:10:32,681 - root - DEBUG - Sampled weight [1.43343432 1.15952945 1.45488519 0.99856298 1.20815728]
+2020-07-29 10:10:33,750 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:34,306 - root - INFO - Completed generation 170; 1.7s elapsed, 1.9s avg, 3.2e+02s total. Expected time remaining: 5.7e+01s
+2020-07-29 10:10:34,361 - root - INFO - #170 MAX:accuracy.mean: 0.89
+2020-07-29 10:10:34,482 - root - DEBUG - Sampled weight [1.5163115  1.47594325 2.32389843 1.13246339 0.72064328]
+2020-07-29 10:10:35,589 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:36,165 - root - INFO - Completed generation 171; 1.7s elapsed, 1.9s avg, 3.2e+02s total. Expected time remaining: 5.5e+01s
+2020-07-29 10:10:36,222 - root - INFO - #171 MAX:accuracy.mean: 0.72
+2020-07-29 10:10:36,264 - root - DEBUG - Sampled weight [1.97196928 1.32903515 0.86960716 0.56513514 1.29407684]
+2020-07-29 10:10:37,355 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:37,544 - root - INFO - Completed generation 172; 1.3s elapsed, 1.9s avg, 3.3e+02s total. Expected time remaining: 5.3e+01s
+2020-07-29 10:10:37,600 - root - INFO - #172 MAX:accuracy.mean: 0.71
+2020-07-29 10:10:37,643 - root - DEBUG - Sampled weight [0.52739031 1.80377404 0.44394496 1.39519964 1.02816887]
+2020-07-29 10:10:38,755 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:39,505 - root - INFO - Completed generation 173; 1.9s elapsed, 1.9s avg, 3.3e+02s total. Expected time remaining: 5.1e+01s
+2020-07-29 10:10:39,560 - root - INFO - #173 MAX:accuracy.mean: 0.71
+2020-07-29 10:10:39,600 - root - DEBUG - Sampled weight [0.99301263 0.72593019 0.83598161 0.60816287 0.35296216]
+2020-07-29 10:10:40,673 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:41,237 - root - INFO - Completed generation 174; 1.7s elapsed, 1.9s avg, 3.3e+02s total. Expected time remaining: 4.9e+01s
+2020-07-29 10:10:41,291 - root - INFO - #174 MAX:accuracy.mean: 0.71
+2020-07-29 10:10:41,333 - root - DEBUG - Sampled weight [0.46702109 0.51260582 1.82266157 1.2287391  0.80744953]
+2020-07-29 10:10:42,420 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:43,347 - root - INFO - Completed generation 175; 2.1s elapsed, 1.9s avg, 3.3e+02s total. Expected time remaining: 4.7e+01s
+2020-07-29 10:10:43,402 - root - INFO - #175 MAX:accuracy.mean: 0.71
+2020-07-29 10:10:43,442 - root - DEBUG - Sampled weight [1.26298111 0.60315908 1.68136105 0.87772977 0.67632919]
+2020-07-29 10:10:44,510 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:44,888 - root - INFO - Completed generation 176; 1.5s elapsed, 1.9s avg, 3.3e+02s total. Expected time remaining: 4.5e+01s
+2020-07-29 10:10:44,942 - root - INFO - #176 MAX:accuracy.mean: 0.72
+2020-07-29 10:10:44,983 - root - DEBUG - Sampled weight [0.62103949 0.25269609 1.49207951 0.82278279 1.3657228 ]
+2020-07-29 10:10:46,064 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:47,169 - root - INFO - Completed generation 177; 2.2s elapsed, 1.9s avg, 3.4e+02s total. Expected time remaining: 4.4e+01s
+2020-07-29 10:10:47,224 - root - INFO - #177 MAX:accuracy.mean: 0.71
+2020-07-29 10:10:47,264 - root - DEBUG - Sampled weight [1.71477161 0.18815137 1.64213457 1.38995691 1.10271153]
+2020-07-29 10:10:48,336 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:49,075 - root - INFO - Completed generation 178; 1.9s elapsed, 1.9s avg, 3.4e+02s total. Expected time remaining: 4.2e+01s
+2020-07-29 10:10:49,130 - root - INFO - #178 MAX:accuracy.mean: 0.71
+2020-07-29 10:10:49,170 - root - DEBUG - Sampled weight [1.15947049 0.72768665 1.21994792 1.13588535 1.55877642]
+2020-07-29 10:10:50,243 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:51,020 - root - INFO - Completed generation 179; 1.9s elapsed, 1.9s avg, 3.4e+02s total. Expected time remaining: 4e+01s
+2020-07-29 10:10:51,078 - root - INFO - #179 MAX:accuracy.mean: 0.82
+2020-07-29 10:10:51,123 - root - DEBUG - Sampled weight [0.88117079 0.54473572 0.59410155 0.79852677 0.42994922]
+2020-07-29 10:10:52,287 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:53,083 - root - INFO - Completed generation 180; 2.0s elapsed, 1.9s avg, 3.4e+02s total. Expected time remaining: 3.8e+01s
+2020-07-29 10:10:53,141 - root - INFO - #180 MAX:accuracy.mean: 0.77
+2020-07-29 10:10:53,272 - root - DEBUG - Sampled weight [0.8794502  0.52349554 0.88113111 0.50567016 0.49098634]
+2020-07-29 10:10:54,424 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:55,431 - root - INFO - Completed generation 181; 2.2s elapsed, 1.9s avg, 3.4e+02s total. Expected time remaining: 3.6e+01s
+2020-07-29 10:10:55,489 - root - INFO - #181 MAX:accuracy.mean: 0.77
+2020-07-29 10:10:55,533 - root - DEBUG - Sampled weight [3.25466659 0.49606575 1.02097926 0.30801987 0.28468596]
+2020-07-29 10:10:56,684 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:57,869 - root - INFO - Completed generation 182; 2.4s elapsed, 1.9s avg, 3.5e+02s total. Expected time remaining: 3.4e+01s
+2020-07-29 10:10:57,927 - root - INFO - #182 MAX:accuracy.mean: 0.7
+2020-07-29 10:10:57,971 - root - DEBUG - Sampled weight [1.04259498 0.6293006  1.41170157 1.67656109 0.71941802]
+2020-07-29 10:10:59,046 - root - DEBUG - Updating hall of fame
+2020-07-29 10:10:59,412 - root - INFO - Completed generation 183; 1.5s elapsed, 1.9s avg, 3.5e+02s total. Expected time remaining: 3.2e+01s
+2020-07-29 10:10:59,466 - root - INFO - #183 MAX:accuracy.mean: 0.73
+2020-07-29 10:10:59,506 - root - DEBUG - Sampled weight [1.04245001 0.92726524 0.67407221 0.68958809 0.49345909]
+2020-07-29 10:11:00,578 - root - DEBUG - Updating hall of fame
+2020-07-29 10:11:01,491 - root - INFO - Completed generation 184; 2.0s elapsed, 1.9s avg, 3.5e+02s total. Expected time remaining: 3e+01s
+2020-07-29 10:11:01,546 - root - INFO - #184 MAX:accuracy.mean: 0.76
+2020-07-29 10:11:01,585 - root - DEBUG - Sampled weight [0.48913743 1.04793118 1.70109314 1.56318284 0.50199592]
+2020-07-29 10:11:02,666 - root - DEBUG - Updating hall of fame
+2020-07-29 10:11:03,222 - root - INFO - Completed generation 185; 1.7s elapsed, 1.9s avg, 3.5e+02s total. Expected time remaining: 2.8e+01s
+2020-07-29 10:11:03,276 - root - INFO - #185 MAX:accuracy.mean: 0.71
+2020-07-29 10:11:03,317 - root - DEBUG - Sampled weight [0.56659383 1.37222863 0.77331679 0.93486957 0.44194029]
+2020-07-29 10:11:04,388 - root - DEBUG - Updating hall of fame
+2020-07-29 10:11:04,939 - root - INFO - Completed generation 186; 1.7s elapsed, 1.9s avg, 3.5e+02s total. Expected time remaining: 2.7e+01s
+2020-07-29 10:11:04,993 - root - INFO - #186 MAX:accuracy.mean: 0.78
+2020-07-29 10:11:05,035 - root - DEBUG - Sampled weight [0.70730822 0.78230923 2.26483925 0.92040049 2.00032888]
+2020-07-29 10:11:06,112 - root - DEBUG - Updating hall of fame
+2020-07-29 10:11:07,036 - root - INFO - Completed generation 187; 2.0s elapsed, 1.9s avg, 3.5e+02s total. Expected time remaining: 2.5e+01s
+2020-07-29 10:11:07,091 - root - INFO - #187 MAX:accuracy.mean: 0.76
+2020-07-29 10:11:07,132 - root - DEBUG - Sampled weight [0.76518511 0.54026526 0.59878172 0.55587844 1.43141263]
+2020-07-29 10:11:08,194 - root - DEBUG - Updating hall of fame
+2020-07-29 10:11:08,558 - root - INFO - Completed generation 188; 1.5s elapsed, 1.9s avg, 3.6e+02s total. Expected time remaining: 2.3e+01s
+2020-07-29 10:11:08,613 - root - INFO - #188 MAX:accuracy.mean: 0.84
+2020-07-29 10:11:08,653 - root - DEBUG - Sampled weight [1.54170313 4.53849576 1.27343175 0.87096221 0.69979933]
+2020-07-29 10:11:09,716 - root - DEBUG - Updating hall of fame
+2020-07-29 10:11:10,445 - root - INFO - Completed generation 189; 1.8s elapsed, 1.9s avg, 3.6e+02s total. Expected time remaining: 2.1e+01s
+2020-07-29 10:11:10,499 - root - INFO - #189 MAX:accuracy.mean: 0.71
+2020-07-29 10:11:10,539 - root - DEBUG - Sampled weight [1.10105954 0.90145012 0.67931769 1.27711234 0.66778487]
+2020-07-29 10:11:11,604 - root - DEBUG - Updating hall of fame
+2020-07-29 10:11:11,793 - root - INFO - Completed generation 190; 1.3s elapsed, 1.9s avg, 3.6e+02s total. Expected time remaining: 1.9e+01s
+2020-07-29 10:11:11,848 - root - INFO - #190 MAX:accuracy.mean: 0.77
+2020-07-29 10:11:11,979 - root - DEBUG - Sampled weight [0.50105913 0.43236253 1.15914213 0.78083908 0.70307079]
+2020-07-29 10:11:13,051 - root - DEBUG - Updating hall of fame
+2020-07-29 10:11:13,970 - root - INFO - Completed generation 191; 2.0s elapsed, 1.9s avg, 3.6e+02s total. Expected time remaining: 1.7e+01s
+2020-07-29 10:11:14,024 - root - INFO - #191 MAX:accuracy.mean: 0.79
+2020-07-29 10:11:14,065 - root - DEBUG - Sampled weight [1.30345974 1.45014684 0.78648509 0.87297961 1.63843083]
+2020-07-29 10:11:15,146 - root - DEBUG - Updating hall of fame
+2020-07-29 10:11:15,518 - root - INFO - Completed generation 192; 1.5s elapsed, 1.9s avg, 3.6e+02s total. Expected time remaining: 1.5e+01s
+2020-07-29 10:11:15,573 - root - INFO - #192 MAX:accuracy.mean: 0.8
+2020-07-29 10:11:15,614 - root - DEBUG - Sampled weight [1.50540337 0.53793244 1.27083814 1.64939841 0.35994403]
+2020-07-29 10:11:16,684 - root - DEBUG - Updating hall of fame
+2020-07-29 10:11:17,228 - root - INFO - Completed generation 193; 1.7s elapsed, 1.9s avg, 3.6e+02s total. Expected time remaining: 1.3e+01s
+2020-07-29 10:11:17,282 - root - INFO - #193 MAX:accuracy.mean: 0.7
+2020-07-29 10:11:17,322 - root - DEBUG - Sampled weight [1.16195377 0.61266307 0.44383361 0.94064219 1.88363963]
+2020-07-29 10:11:18,381 - root - DEBUG - Updating hall of fame
+2020-07-29 10:11:18,761 - root - INFO - Completed generation 194; 1.5s elapsed, 1.9s avg, 3.7e+02s total. Expected time remaining: 1.1e+01s
+2020-07-29 10:11:18,815 - root - INFO - #194 MAX:accuracy.mean: 0.71
+2020-07-29 10:11:18,857 - root - DEBUG - Sampled weight [0.99831099 2.14113992 2.52282715 0.70998891 1.0913536 ]
+2020-07-29 10:11:19,930 - root - DEBUG - Updating hall of fame
+2020-07-29 10:11:20,661 - root - INFO - Completed generation 195; 1.8s elapsed, 1.9s avg, 3.7e+02s total. Expected time remaining: 9.4s
+2020-07-29 10:11:20,716 - root - INFO - #195 MAX:accuracy.mean: 0.76
+2020-07-29 10:11:20,756 - root - DEBUG - Sampled weight [1.09849687 1.30721366 0.59303339 0.92991235 1.91171695]
+2020-07-29 10:11:21,813 - root - DEBUG - Updating hall of fame
+2020-07-29 10:11:22,180 - root - INFO - Completed generation 196; 1.5s elapsed, 1.9s avg, 3.7e+02s total. Expected time remaining: 7.5s
+2020-07-29 10:11:22,234 - root - INFO - #196 MAX:accuracy.mean: 0.76
+2020-07-29 10:11:22,274 - root - DEBUG - Sampled weight [0.51770928 0.4499225  1.03676887 0.96553675 2.43533709]
+2020-07-29 10:11:23,343 - root - DEBUG - Updating hall of fame
+2020-07-29 10:11:24,268 - root - INFO - Completed generation 197; 2.0s elapsed, 1.9s avg, 3.7e+02s total. Expected time remaining: 5.7s
+2020-07-29 10:11:24,322 - root - INFO - #197 MAX:accuracy.mean: 0.72
+2020-07-29 10:11:24,364 - root - DEBUG - Sampled weight [1.65474026 0.57207595 0.51942108 1.71948024 0.90849401]
+2020-07-29 10:11:25,430 - root - DEBUG - Updating hall of fame
+2020-07-29 10:11:25,793 - root - INFO - Completed generation 198; 1.5s elapsed, 1.9s avg, 3.7e+02s total. Expected time remaining: 3.8s
+2020-07-29 10:11:25,848 - root - INFO - #198 MAX:accuracy.mean: 0.72
+2020-07-29 10:11:25,888 - root - DEBUG - Sampled weight [0.69759773 1.22054086 0.50358618 1.19375394 0.87030666]
+2020-07-29 10:11:26,960 - root - DEBUG - Updating hall of fame
+2020-07-29 10:11:27,689 - root - INFO - Completed generation 199; 1.8s elapsed, 1.9s avg, 3.7e+02s total. Expected time remaining: 1.9s
+2020-07-29 10:11:27,744 - root - INFO - #199 MAX:accuracy.mean: 0.74
+2020-07-29 10:11:27,784 - root - DEBUG - Sampled weight [1.33528956 1.72104123 1.31548861 1.26371151 1.13129863]
+2020-07-29 10:11:28,868 - root - DEBUG - Updating hall of fame
+2020-07-29 10:11:29,977 - root - INFO - Completed generation 200; 2.2s elapsed, 1.9s avg, 3.8e+02s total. Expected time remaining: 0.0s
+2020-07-29 10:11:30,032 - root - INFO - #200 MAX:accuracy.mean: 0.83
+2020-07-29 10:11:30,167 - root - DEBUG - Loaded 150 samples.
+2020-07-29 10:11:30,171 - root - INFO - Evaluating indivs in hall of fame.
+2020-07-29 10:11:32,102 - root - INFO - Completed excution.

@@ -1,0 +1,57 @@
+debug = false
+experiment_name = "Iris Uniform Distribution [-4, 4] run 5"
+experiment_path = "data/2020-05-02_Iris Uniform Distribution [-4, 4] run 5_000"
+is_report = true
+
+[config]
+num_workers = 1
+
+[postopt]
+run_postopt = true
+compile_report = true
+num_weights = 100
+num_samples = -1
+
+[sampling]
+seed = 5
+distribution = "uniform"
+lower_bound = -4
+upper_bound = 4
+num_weight_samples_per_iteration = 5
+num_training_samples_per_iteration = -1
+hof_evaluation_iterations = 20
+
+[task]
+name = "iris"
+
+[storage]
+data_base_path = "data"
+commit_population_freq = 10
+log_filename = "execution.log"
+include_prediction_records = false
+
+[population]
+num_generations = 200
+size = 100
+initial_enabled_edge_probability = 0.05
+initial_with_edges = true
+hof_size = 10
+
+[selection]
+use_tournaments = true
+elite_ratio = 0.1
+culling_ratio = 0.2
+tournament_size = 5
+
+[mutation.new_edge]
+propability = 0.2
+strategy = "layer_agnostic"
+
+[mutation.new_node]
+propability = 0.3
+
+[mutation.reenable_edge]
+propability = 0.1
+
+[mutation.change_activation]
+propability = 0.4

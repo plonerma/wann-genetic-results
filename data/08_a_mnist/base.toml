@@ -1,0 +1,76 @@
+debug = false
+
+[config]
+num_workers = 8
+debug = true
+backend = "numpy"
+
+[postopt]
+run_postopt = true
+compile_report = true
+num_weights = 100
+num_samples = -1
+
+[sampling]
+seed = 0
+post_init_seed = false
+distribution = "lognormal"
+lower_bound = -2
+upper_bound = 2
+mean = 0
+sigma = 0.5
+num_weights_per_iteration = 6
+num_samples_per_iteration = 2000
+hof_evaluation_iterations = 4
+
+[task]
+name = "mnist256"
+
+[storage]
+data_base_path = "data"
+log_filename = "execution.log"
+include_prediction_records = false
+commit_elite_freq = -1
+commit_metrics_freq = 10
+
+[population]
+num_generations = 1600
+size = 320
+initial_enabled_edge_probability = 0.05
+initial_genes = "full"
+hof_size = 10
+enable_edge_signs = true
+enabled_activation_functions = "all"
+initial_with_edges = true
+
+[selection]
+use_tournaments = true
+elite_ratio = 0.1
+culling_ratio = 0.2
+tournament_size = 5
+objectives = [ "-log_loss.min", "-log_loss.mean", "-n_hidden",]
+recorded_metrics = [ "accuracy", "kappa", "log_loss",]
+hof_metric = "accuracy.mean"
+
+[mutation.new_edge]
+probability = 0.2
+strategy = "layer_agnostic"
+propability = 0.2
+
+[mutation.new_node]
+probability = 0.25
+propability = 0.3
+
+[mutation.reenable_edge]
+probability = 0.05
+propability = 0.1
+
+[mutation.change_activation]
+probability = 0.5
+propability = 0.4
+
+[mutation.change_edge_sign]
+probability = 0.2
+
+[mutation.add_recurrent_edge]
+probability = 0.3

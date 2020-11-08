@@ -1,0 +1,31 @@
+experiment_name="Iris {complexity_measure}; {distribution}; signed: {signed}; seed: {seed}"
+base_params="base.toml"
+
+
+[signed]
+  values=[true, false]
+  key=['population', 'enable_edge_signs']
+
+[distribution]
+  key=['sampling']
+  values=[
+    {lower_bound =-2, upper_bound = 2, distribution = "uniform", _fmt="uniform {lower_bound},{upper_bound}"},
+    {mean = 0, sigma = 0.5, distribution = "lognormal", _fmt="lognormal {mean},{sigma}"}
+  ]
+
+
+[complexity_measure]
+  key=['selection']
+  values=[
+    {objectives=['-log_loss.min', '-log_loss.mean', '-n_hidden']},
+    {objectives=['-log_loss.min', '-log_loss.mean', '-n_total_edges']},
+    {objectives=['-log_loss.min', '-log_loss.mean', '-n_mutations']},
+    {objectives=['-log_loss.min', '-log_loss.mean', '-n_enabled_edges']},
+    {objectives=['-log_loss.min', '-log_loss.mean'],  _fmt='no_complex'},
+  ]
+
+  fmt="{objectives[2]}"
+
+[seed]
+  values=[0,1,2,3,4]
+  key=['sampling', 'seed']
